@@ -29,8 +29,8 @@ public class DriverManager {
                 case FIREFOX:
                     System.out.println("Launching Firefox Browser");
                     break;
-                 default:
-                     break;
+                default:
+                    break;
             }
         }
 
