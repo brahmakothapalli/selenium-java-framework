@@ -10,6 +10,7 @@ public class BaseTest {
     @BeforeSuite
     public static void configSetup(){
 
+
     }
 
     @BeforeMethod
@@ -21,6 +22,7 @@ public class BaseTest {
 
     @AfterMethod
     public static void driverClose(){
+
 
     }
 
