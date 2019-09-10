@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="example suite 1" verbose="1" >
+    <test name="HomePage" >
+        <classes>
+           <class name ="com.qababu.HomePage"/>
+        </classes>
+    </test>
+</suite>

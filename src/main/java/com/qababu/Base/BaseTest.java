@@ -1,5 +1,6 @@
 package com.qababu.Base;
 
+import com.qababu.Utility.ExtentReport.ExtentTestManager;
 import com.qababu.Utility.FileReader.ConfigFileReader;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -9,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Properties;
 
 public class BaseTest {
@@ -27,16 +29,16 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public static void driverInit(){
+    public static void driverInit(Method method){
 
-        
+        ExtentTestManager.startTest(method.getName());
 
     }
 
     @AfterMethod
     public static void driverClose(){
 
-
+        ExtentTestManager.endTest();
     }
 
 
