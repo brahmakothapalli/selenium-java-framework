@@ -9,11 +9,11 @@ import java.util.Map;
 public class ExtentTestManager {
 
 
-    static Map<Integer, ExtentTest> extentTestMap = new HashMap<>();
+    private static Map<Integer, ExtentTest> extentTestMap = new HashMap<>();
 
-    static ExtentReports extent = ExtentManager.getExtent();
+    private static ExtentReports extent = ExtentManager.getExtent();
 
-    static ExtentTest suite;
+    private static ExtentTest suite;
 
 
     public static synchronized void startTestSuite(String suiteName) {
@@ -21,13 +21,12 @@ public class ExtentTestManager {
         suite = extent.createTest(suiteName);
     }
 
-    public static synchronized ExtentTest startTest(String testName) {
+    public static synchronized void startTest(String testName) {
 
         ExtentTest test = suite.createNode(testName);
 
         extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
 
-        return test;
     }
 
     public static ExtentTest getTest() {
