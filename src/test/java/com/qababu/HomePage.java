@@ -15,4 +15,12 @@ public class HomePage extends BaseTest {
 
         logger.info("Starting the test");
     }
+
+    @Test
+    public void sampleTest2(){
+
+        logger.info("Starting the test2");
+    }
+
+
 }
