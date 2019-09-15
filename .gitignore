@@ -25,3 +25,11 @@
 hs_err_pid*
 .idea
 .iml
+target/classes/Log4j.properties
+target/classes/config.properties
+target/generated-sources/
+target/generated-test-sources/
+target/maven-status/
+target/surefire-reports/
+target/test-classes/
+extentReport/*.html
