@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="example suite 1" duration-ms="968" started-at="2019-09-15T15:09:52 IST" finished-at="2019-09-15T15:09:53 IST">
+    <groups>
+    </groups>
+    <test name="HomePage" duration-ms="968" started-at="2019-09-15T15:09:52 IST" finished-at="2019-09-15T15:09:53 IST">
+      <class name="com.qababu.HomePage">
+        <test-method status="PASS" signature="configSetup()[pri:0, instance:com.qababu.HomePage@7791a895]" name="configSetup" is-config="true" duration-ms="26" started-at="2019-09-15T15:09:52 IST" finished-at="2019-09-15T15:09:52 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configSetup -->
+        <test-method status="PASS" signature="driverInit(java.lang.reflect.Method)[pri:0, instance:com.qababu.HomePage@7791a895]" name="driverInit" is-config="true" duration-ms="15" started-at="2019-09-15T15:09:53 IST" finished-at="2019-09-15T15:09:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qababu.HomePage.sampleTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverInit -->
+        <test-method status="PASS" signature="sampleTest()[pri:0, instance:com.qababu.HomePage@7791a895]" name="sampleTest" duration-ms="1" started-at="2019-09-15T15:09:53 IST" finished-at="2019-09-15T15:09:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sampleTest -->
+        <test-method status="PASS" signature="driverClose()[pri:0, instance:com.qababu.HomePage@7791a895]" name="driverClose" is-config="true" duration-ms="604" started-at="2019-09-15T15:09:53 IST" finished-at="2019-09-15T15:09:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverClose -->
+        <test-method status="PASS" signature="sampleTest2()[pri:0, instance:com.qababu.HomePage@7791a895]" name="sampleTest2" duration-ms="0" started-at="2019-09-15T15:09:53 IST" finished-at="2019-09-15T15:09:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sampleTest2 -->
+        <test-method status="PASS" signature="driverInit(java.lang.reflect.Method)[pri:0, instance:com.qababu.HomePage@7791a895]" name="driverInit" is-config="true" duration-ms="0" started-at="2019-09-15T15:09:53 IST" finished-at="2019-09-15T15:09:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qababu.HomePage.sampleTest2()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverInit -->
+        <test-method status="PASS" signature="driverClose()[pri:0, instance:com.qababu.HomePage@7791a895]" name="driverClose" is-config="true" duration-ms="112" started-at="2019-09-15T15:09:53 IST" finished-at="2019-09-15T15:09:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverClose -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qababu.HomePage@7791a895]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-15T15:09:54 IST" finished-at="2019-09-15T15:09:54 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qababu.HomePage -->
+    </test> <!-- HomePage -->
+  </suite> <!-- example suite 1 -->
+</testng-results>
