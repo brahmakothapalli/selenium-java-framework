@@ -22,5 +22,11 @@ public class HomePage extends BaseTest {
         logger.info("Starting the test2");
     }
 
+    @Test
+    public void sampleTest3(){
+
+        logger.info("Starting the test3");
+    }
+
 
 }
