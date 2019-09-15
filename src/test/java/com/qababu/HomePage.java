@@ -12,7 +12,6 @@ public class HomePage extends BaseTest {
 
     @Test
     public void sampleTest(){
-
         logger.info("Starting the test");
     }
 
