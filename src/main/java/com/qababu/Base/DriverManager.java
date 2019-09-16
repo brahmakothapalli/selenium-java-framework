@@ -13,7 +13,7 @@ public class DriverManager {
 
     private static String browserType;
 
-    public static void setyBrowserType(String browser){
+    public static void setBrowserType(String browser){
 
         browserType = browser;
     }

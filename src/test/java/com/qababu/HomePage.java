@@ -1,6 +1,7 @@
 package com.qababu;
 
 import com.qababu.Base.BaseTest;
+import com.qababu.Base.DriverManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ public class HomePage extends BaseTest {
     public void sampleTest(){
 
         logger.info("Starting the test1");
+        System.out.println(DriverManager.getDriver().getTitle());
     }
 
     @Test

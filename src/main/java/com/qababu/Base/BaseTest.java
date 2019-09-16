@@ -1,5 +1,6 @@
 package com.qababu.Base;
 
+import com.qababu.Enums.ConstantVariables;
 import com.qababu.Utility.ExtentReport.ExtentTestManager;
 import com.qababu.Utility.FileReader.ConfigFileReader;
 import org.apache.log4j.Logger;
@@ -26,12 +27,16 @@ public class BaseTest {
 
         logger.info("The app url - "+prop.getProperty("appURL"));
 
+        DriverManager.setBrowserType(ConstantVariables.CHROME);
+
     }
 
     @BeforeMethod
     public static void driverInit(Method method){
 
         ExtentTestManager.startTest(method.getName());
+        DriverManager.getDriver().manage().window().maximize();
+        DriverManager.getDriver().get(prop.getProperty("appURL"));
 
     }
 
@@ -39,6 +44,7 @@ public class BaseTest {
     public static void driverClose(){
 
         ExtentTestManager.endTest();
+        DriverManager.quitDriver();
     }
 
 
