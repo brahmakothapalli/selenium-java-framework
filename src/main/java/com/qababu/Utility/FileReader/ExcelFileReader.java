@@ -1,5 +1,9 @@
 package com.qababu.Utility.FileReader;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,6 +15,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExcelFileReader {
+
+    private static final Logger logger = Logger.getLogger(ExcelFileReader.class.getSimpleName());
+
 
     private static XSSFWorkbook excelWorkBook;
     private static XSSFSheet excelSheet;
@@ -30,24 +37,99 @@ public class ExcelFileReader {
         return excelWorkBook.getSheet(sheetName);
     }
 
-    public static int getRowCount(XSSFSheet sheet){
+    public static int getRowCount(XSSFSheet sheet) {
 
         return sheet.getLastRowNum();
     }
 
-    public static String getCellData(XSSFSheet sheetName, int rowNum, int colNum){
+    public static String getCellData(XSSFSheet excelSheet, int rowNum, int colNum) {
 
-        int rowCount = getRowCount(sheetName);
+        XSSFRow row = excelSheet.getRow(rowNum);
 
+        String cellValue = null;
+        try {
+            if (row != null) {
 
-        for(int i=0; i<rowCount; i++){
-            System.out.println("In Progress");
-            // =
+                XSSFCell cell = row.getCell(colNum, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
 
+                if (cell != null && (cell.getCellType() == CellType.STRING)) {
+
+                    cellValue = cell.getStringCellValue();
+
+                } else if (cell != null && (cell.getCellType() == CellType.NUMERIC)) {
+
+                    cellValue = String.valueOf(cell.getNumericCellValue());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        return null;
+        return cellValue;
     }
 
+    public static int getCurrentTestRowNum(XSSFSheet sheet, String testName) {
+
+        int currentTestRowNum = -1;
+
+        int totalRowCount = getRowCount(sheet);
+        try {
+            for (int i = 0; i < totalRowCount; i++) {
+
+                XSSFRow row = sheet.getRow(i);
+
+                if (row != null) {
+
+                    XSSFCell cell = row.getCell(0);
+
+                    if ((cell != null) && (cell.getCellType() == CellType.STRING)) {
+
+                        String cellValue = cell.getStringCellValue();
+
+                        if (cellValue.equals(testName)) {
+                            currentTestRowNum = i;
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return currentTestRowNum;
+    }
+
+    public static int[] getTestDataSetsCount(XSSFSheet excelSheet, int currentTestRowNum) {
+
+        int totalDataSetsCount = 0;
+
+        int enabledDataSetsCount = 0;
+
+        int[] dataSetsCount = new int[2];
+
+        XSSFRow row;
+
+        if (currentTestRowNum != -1) {
+
+            currentTestRowNum = currentTestRowNum + 2;
+
+            row = excelSheet.getRow(currentTestRowNum);
+
+            while (row != null) {
+
+                if (getCellData(excelSheet, currentTestRowNum, 0).equals("Y")) {
+                    enabledDataSetsCount += 1;
+                }
+                totalDataSetsCount += 1;
+                currentTestRowNum += 1;
+                row = excelSheet.getRow(currentTestRowNum);
+            }
+            dataSetsCount[0] =totalDataSetsCount;
+            dataSetsCount[1] = enabledDataSetsCount;
+        }else {
+            logger.info("The test data is not present in the TestData file");
+        }
+        return dataSetsCount;
+    }
 
 }
