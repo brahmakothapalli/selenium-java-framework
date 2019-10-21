@@ -1,6 +1,6 @@
 # **Selenium Automation Framework**
 
-This is a robust and scalabel automation framework for web apps. This framework based on POM design approach.
+This repository contains a robust and scalabel automation framework for automating your web apps. This framework based on POM design approach.
 
 ## **Dependencies**
 
