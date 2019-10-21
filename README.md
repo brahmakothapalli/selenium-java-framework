@@ -19,3 +19,5 @@ This repository contains a robust and scalabel automation framework for automati
 2. DataDriven Testing
 3. CrossBrowser Testing
 4. ExtenReport Generation
+
+In case of any queries you can mail me on brahma457@gmail.com. Please share with your friends and give a star if you find it helpful.
