@@ -1,6 +1,5 @@
 package com.qababu.Utility.FileReader;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -11,7 +10,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExcelFileReader {
@@ -20,9 +18,7 @@ public class ExcelFileReader {
 
 
     private static XSSFWorkbook excelWorkBook;
-    private static XSSFSheet excelSheet;
-    private static XSSFRow excelRow;
-    private static XSSFCell excelCell;
+
 
 
     public static XSSFSheet getSheet(String filePath, String sheetName) {
