@@ -2,12 +2,14 @@ package com.qababu;
 
 import com.qababu.Base.BaseTest;
 import com.qababu.Base.DriverManager;
+import com.qababu.Utility.DataProvider.TestDataProvider;
 import com.qababu.pageactions.HomePageActions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(com.qababu.Utility.TestNGListeners.TestListener.class)
@@ -32,13 +34,13 @@ public class HomePage extends BaseTest {
         DriverManager.getDriver().get("http://www.google.com");
     }
 
-    @Test
-    public void invalidLoginValidationTest() {
+    @Test(dataProvider = "ask-me", dataProviderClass = TestDataProvider.class, description = "testdata")
+    public void invalidLoginValidationTest(Map<String, String> map) {
         logger.info("Starting invalidLoginValidationTest");
         System.out.println(DriverManager.getDriver().getTitle());
         //homePageActions.loginAction(DriverManager.getDriver(), "abcnd", "11234");
         String text = DriverManager.getDriver().getTitle();
-        System.out.println(text);
+        System.out.println(map.get("username"));
         Assert.assertEquals(text, "Google");
     }
 

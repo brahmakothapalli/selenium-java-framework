@@ -61,6 +61,14 @@
           <version>4.0.9</version>
       </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.applitools/eyes-selenium-java3 -->
+    <dependency>
+      <groupId>com.applitools</groupId>
+      <artifactId>eyes-selenium-java3</artifactId>
+      <version>3.158.4</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
