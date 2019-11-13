@@ -20,4 +20,4 @@ This repository contains a robust and scalabel automation framework for automati
 3. CrossBrowser Testing
 4. ExtenReport Generation
 
-In case of any queries you can mail me on brahma457@gmail.com. Please share with your friends and give a star if you find it helpful.
+In case of any queries you can mail me on brahma.kothapalli@gmail.com. Please share with your friends and give a star if you find it helpful.
