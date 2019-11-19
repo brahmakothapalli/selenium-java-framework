@@ -20,7 +20,7 @@ public class ExtentManager {
     }
 
     //Initiate Extent Report
-    private static ExtentReports createReport() {
+    private static void createReport() {
 
         String pattern = "yyyyMMdd_HHMMSS";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -41,6 +41,5 @@ public class ExtentManager {
         extent.setSystemInfo("Tester", "Brahma");
         extent.setSystemInfo("Release", "R27");
 
-        return extent;
     }
 }

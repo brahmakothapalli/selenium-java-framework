@@ -1,5 +1,8 @@
 package com.qababu.pageactions;
 
+import com.qababu.Base.BaseTest;
+import com.qababu.Helpers.ClickHelper;
+import com.qababu.Helpers.TextHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,36 +10,28 @@ import org.openqa.selenium.support.ui.Select;
 
 import static com.qababu.pageobjects.HomePageObjects.*;
 
-public class HomePageActions {
+public class HomePageActions extends BaseTest {
 
 
-    public void selectAttendeesAction(WebDriver driver, String value){
-
-        //WebElement element = driver.findElement(participantTypeDrpdwn);
-
-       // Select dropdown = new Select(element);
-
-        //dropdown.selectByVisibleText(value);
-    }
-
-    public void loginAction(WebDriver driver, String userName, String paasw){
-
-        driver.findElement(username).sendKeys(userName);
-
-        driver.findElement(password).sendKeys(paasw);
-
-        driver.findElement(signIn).click();
+    public void loginAction(WebDriver driver, String uname, String pwd){
+        try{
+            TextHelper.enterText(driver, userName, uname);
+            TextHelper.enterText(driver, password, pwd);
+            ClickHelper.click(driver, signIn);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw (e);
+        }
     }
 
     public String getLoginErrorText(WebDriver driver){
-
-        return driver.findElement(loginErrorText).getText();
+        try{
+            return  TextHelper.getText(driver, loginErrorText);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw (e);
+        }
     }
 
-    public void fillingRegistrationDetails(WebDriver driver, String value){
 
-//        WebElement element = driver.findElement(participantTypeDrpdwn);
-//
-//        Select drop       =dropdown.selectByVisibleText(value);
-    }
 }

@@ -33,3 +33,4 @@ target/maven-status/
 target/surefire-reports/
 target/test-classes/
 extentReport/*.html
+target/**

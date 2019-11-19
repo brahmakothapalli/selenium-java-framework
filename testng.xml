@@ -3,7 +3,7 @@
 <suite name="example suite 1" verbose="1" >
     <test name="HomePage" >
         <classes>
-           <class name ="com.qababu.HomePage"/>
+           <class name ="com.qababu.HomePageTests"/>
         </classes>
     </test>
 </suite>
