@@ -4,6 +4,7 @@ import com.qababu.Enums.BrowserType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 
@@ -42,6 +43,10 @@ public class DriverManager {
                     WebDriverManager.iedriver().arch32().setup();
                     driver = new InternetExplorerDriver();
                     break;
+                case EDGE:
+                    System.out.println("Launching EDGE Browser");
+                    WebDriverManager.edgedriver().arch32().setup();
+                    driver = new EdgeDriver();
                 default:
                     break;
             }
