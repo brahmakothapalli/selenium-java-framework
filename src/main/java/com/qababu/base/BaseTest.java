@@ -1,7 +1,7 @@
-package com.qababu.Base;
+package com.qababu.base;
 
-import com.qababu.Utility.ExtentReport.ExtentTestManager;
-import com.qababu.Utility.FileReader.ConfigFileReader;
+import com.qababu.utility.ExtentReport.ExtentTestManager;
+import com.qababu.utility.FileReader.ConfigFileReader;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;

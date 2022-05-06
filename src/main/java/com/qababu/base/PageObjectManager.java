@@ -1,4 +1,4 @@
-package com.qababu.Base;
+package com.qababu.base;
 
 import com.qababu.pagecctions.BookStorePageActions;
 

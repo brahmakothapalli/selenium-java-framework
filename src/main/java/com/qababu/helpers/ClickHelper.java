@@ -1,4 +1,4 @@
-package com.qababu.Helpers;
+package com.qababu.helpers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

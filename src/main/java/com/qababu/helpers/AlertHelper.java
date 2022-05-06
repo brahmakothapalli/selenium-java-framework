@@ -1,4 +1,4 @@
-package com.qababu.Helpers;
+package com.qababu.helpers;
 
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;

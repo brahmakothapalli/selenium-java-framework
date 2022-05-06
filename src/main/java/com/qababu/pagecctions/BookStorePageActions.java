@@ -1,8 +1,8 @@
 package com.qababu.pagecctions;
 
-import com.qababu.Base.BaseTest;
-import com.qababu.Helpers.ClickHelper;
-import com.qababu.Helpers.TextHelper;
+import com.qababu.base.BaseTest;
+import com.qababu.helpers.ClickHelper;
+import com.qababu.helpers.TextHelper;
 import org.openqa.selenium.WebDriver;
 
 import static com.qababu.pageobjects.BookStorePageObjects.*;

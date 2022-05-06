@@ -1,4 +1,4 @@
-package com.qababu.Utility.FileReader;
+package com.qababu.utility.FileReader;
 
 import java.io.File;
 import java.io.FileInputStream;

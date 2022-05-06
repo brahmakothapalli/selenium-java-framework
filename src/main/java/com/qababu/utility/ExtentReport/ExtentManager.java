@@ -1,4 +1,4 @@
-package com.qababu.Utility.ExtentReport;
+package com.qababu.utility.ExtentReport;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;

@@ -1,7 +1,7 @@
-package com.qababu.Utility.DataProvider;
+package com.qababu.utility.DataProvider;
 
-import com.qababu.Enums.ConstantVariables;
-import com.qababu.Utility.FileReader.ExcelFileReader;
+import com.qababu.enums.ConstantVariables;
+import com.qababu.utility.FileReader.ExcelFileReader;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.DataProvider;

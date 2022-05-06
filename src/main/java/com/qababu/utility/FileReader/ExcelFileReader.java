@@ -1,4 +1,4 @@
-package com.qababu.Utility.FileReader;
+package com.qababu.utility.FileReader;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.CellType;

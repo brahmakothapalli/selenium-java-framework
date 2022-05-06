@@ -1,17 +1,17 @@
 package com.qababu;
 
-import com.qababu.Base.BaseTest;
-import com.qababu.Base.DriverManager;
-import com.qababu.Base.PageObjectManager;
-import com.qababu.Utility.DataProvider.TestDataProvider;
-import com.qababu.Utility.ExtentReport.ExtentTestManager;
+import com.qababu.base.BaseTest;
+import com.qababu.base.DriverManager;
+import com.qababu.base.PageObjectManager;
+import com.qababu.utility.DataProvider.TestDataProvider;
+import com.qababu.utility.ExtentReport.ExtentTestManager;
 import com.qababu.pagecctions.BookStorePageActions;
 import org.apache.log4j.Logger;
 import org.testng.annotations.*;
 
 import java.util.Map;
 
-@Listeners(com.qababu.Utility.TestNGListeners.TestListener.class)
+@Listeners(com.qababu.utility.TestNGListeners.TestListener.class)
 public class BookStorePageTests extends BaseTest {
 
     private static final Logger logger = Logger.getLogger(BookStorePageTests.class.getSimpleName());

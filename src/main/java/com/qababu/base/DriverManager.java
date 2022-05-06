@@ -1,6 +1,6 @@
-package com.qababu.Base;
+package com.qababu.base;
 
-import com.qababu.Enums.BrowserType;
+import com.qababu.enums.BrowserType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

@@ -1,4 +1,4 @@
-package com.qababu.Enums;
+package com.qababu.enums;
 
 public class ConstantVariables {
 
