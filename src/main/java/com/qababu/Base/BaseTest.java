@@ -18,14 +18,14 @@ public class BaseTest {
     public static Properties prop;
 
     private static final Logger logger = Logger.getLogger(BaseTest.class.getSimpleName());
-    private static String browserName;
+    private static String appUrl;
 
     @BeforeSuite
     public static void configSetup() throws IOException {
         prop = ConfigFileReader.getConfigPropObject();
-        String appUrl = prop.getProperty("appURL");
+        appUrl = prop.getProperty("appURL");
         logger.info("The application url is :: "+ appUrl);
-        browserName = prop.getProperty("browserType");
+        String browserName = prop.getProperty("browserType");
         logger.info("The browser to be used is :: "+ browserName);
         DriverManager.setBrowserType(browserName);
     }
@@ -36,7 +36,7 @@ public class BaseTest {
         ExtentTestManager.startTest(method.getName());
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        DriverManager.getDriver().get(browserName);
+        DriverManager.getDriver().get(appUrl);
     }
 
 

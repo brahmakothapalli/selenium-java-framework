@@ -3,10 +3,7 @@ package com.qababu.pageactions;
 import com.qababu.Base.BaseTest;
 import com.qababu.Helpers.ClickHelper;
 import com.qababu.Helpers.TextHelper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import static com.qababu.pageobjects.HomePageObjects.*;
 
