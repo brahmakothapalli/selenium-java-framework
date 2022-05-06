@@ -2,7 +2,7 @@ package com.qababu.pageobjects;
 
 import org.openqa.selenium.By;
 
-public class HomePageObjects {
+public class BookStorePageObjects {
 
 
     public static final By loginErrorText = By.id("drpdwnType");

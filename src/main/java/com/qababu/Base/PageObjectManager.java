@@ -1,17 +1,17 @@
 package com.qababu.Base;
 
-import com.qababu.pageactions.HomePageActions;
+import com.qababu.pagecctions.BookStorePageActions;
 
 public class PageObjectManager {
 
-    private static HomePageActions homePageActions;
+    private static BookStorePageActions homePageActions;
 
     private PageObjectManager(){
 
     }
 
-    public static HomePageActions getHomePageActions(){
+    public static BookStorePageActions getHomePageActions(){
 
-        return (homePageActions == null) ? homePageActions = new HomePageActions() : homePageActions;
+        return (homePageActions == null) ? homePageActions = new BookStorePageActions() : homePageActions;
     }
 }

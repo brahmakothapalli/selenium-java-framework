@@ -1,13 +1,13 @@
-package com.qababu.pageactions;
+package com.qababu.pagecctions;
 
 import com.qababu.Base.BaseTest;
 import com.qababu.Helpers.ClickHelper;
 import com.qababu.Helpers.TextHelper;
 import org.openqa.selenium.WebDriver;
 
-import static com.qababu.pageobjects.HomePageObjects.*;
+import static com.qababu.pageobjects.BookStorePageObjects.*;
 
-public class HomePageActions extends BaseTest {
+public class BookStorePageActions extends BaseTest {
 
 
     public void loginAction(WebDriver driver, String uname, String pwd){
