@@ -1,7 +1,6 @@
 package com.qababu.base;
 
 import com.qababu.enums.BrowserType;
-import com.qababu.utilities.DataProvider.TestDataProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,7 +15,7 @@ public class DriverManager {
 
     private static final Logger logger = LogManager.getLogger(DriverManager.class.getSimpleName());
 
-    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
 
     private static String browserType;
 

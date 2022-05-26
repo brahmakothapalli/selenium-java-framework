@@ -40,7 +40,6 @@ public class BaseTest {
         DriverManager.getDriver().get(appUrl);
     }
 
-
     @AfterMethod
     public static void driverClose(){
         ExtentTestManager.endTest();
@@ -49,6 +48,6 @@ public class BaseTest {
 
     @AfterSuite
     public static void tearDown(){
-
+        logger.info("*********** --E---N---D-- ************");
     }
 }
