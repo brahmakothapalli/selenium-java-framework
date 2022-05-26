@@ -1,14 +1,20 @@
 package com.qababu.base;
 
 import com.qababu.enums.BrowserType;
+import com.qababu.utilities.DataProvider.TestDataProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 
 public class DriverManager {
+
+    private static final Logger logger = LogManager.getLogger(DriverManager.class.getSimpleName());
 
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
 
@@ -28,23 +34,23 @@ public class DriverManager {
         if(driver == null){
             switch (browser){
                 case CHROME:
-                    System.out.println("Launching Chrome Browser");
+                    logger.info("Launching Chrome Browser");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     threadDriver.set(driver);
                     break;
                 case FIREFOX:
-                    System.out.println("Launching Firefox Browser");
+                    logger.info("Launching Firefox Browser");
                     WebDriverManager.firefoxdriver().arch32().setup();
-                    /*driver = new FirefoxDriver();*/
+                    driver = new FirefoxDriver();
                     break;
                 case IE:
-                    System.out.println("Launching IE Browser");
+                    logger.info("Launching IE Browser");
                     WebDriverManager.iedriver().arch32().setup();
                     driver = new InternetExplorerDriver();
                     break;
                 case EDGE:
-                    System.out.println("Launching EDGE Browser");
+                    logger.info("Launching EDGE Browser");
                     WebDriverManager.edgedriver().arch32().setup();
                     driver = new EdgeDriver();
                 default:

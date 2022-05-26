@@ -1,8 +1,9 @@
 package com.qababu.base;
 
-import com.qababu.utility.ExtentReport.ExtentTestManager;
-import com.qababu.utility.FileReader.ConfigFileReader;
-import org.apache.log4j.Logger;
+import com.qababu.utilities.ExtentReport.ExtentTestManager;
+import com.qababu.utilities.FileReader.ConfigFileReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +18,7 @@ public class BaseTest {
 
     public static Properties prop;
 
-    private static final Logger logger = Logger.getLogger(BaseTest.class.getSimpleName());
+    private static final Logger logger = LogManager.getLogger(BaseTest.class.getSimpleName());
     private static String appUrl;
 
     @BeforeSuite

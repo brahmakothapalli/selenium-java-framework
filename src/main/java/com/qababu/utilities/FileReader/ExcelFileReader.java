@@ -1,6 +1,7 @@
-package com.qababu.utility.FileReader;
+package com.qababu.utilities.FileReader;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -14,7 +15,7 @@ import java.io.IOException;
 
 public class ExcelFileReader {
 
-    private static final Logger logger = Logger.getLogger(ExcelFileReader.class.getSimpleName());
+    private static final Logger logger = LogManager.getLogger(ExcelFileReader.class.getSimpleName());
 
 
     private static XSSFWorkbook excelWorkBook;

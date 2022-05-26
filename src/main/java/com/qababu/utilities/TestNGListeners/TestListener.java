@@ -1,10 +1,10 @@
-package com.qababu.utility.TestNGListeners;
+package com.qababu.utilities.TestNGListeners;
 
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.qababu.utility.ExtentReport.ExtentManager;
-import com.qababu.utility.ExtentReport.ExtentTestManager;
+import com.qababu.utilities.ExtentReport.ExtentManager;
+import com.qababu.utilities.ExtentReport.ExtentTestManager;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;

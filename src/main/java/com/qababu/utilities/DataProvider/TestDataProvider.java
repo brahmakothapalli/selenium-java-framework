@@ -1,8 +1,9 @@
-package com.qababu.utility.DataProvider;
+package com.qababu.utilities.DataProvider;
 
 import com.qababu.enums.ConstantVariables;
-import com.qababu.utility.FileReader.ExcelFileReader;
-import org.apache.log4j.Logger;
+import com.qababu.utilities.FileReader.ExcelFileReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class TestDataProvider {
 
-    private static final Logger logger = Logger.getLogger(TestDataProvider.class.getSimpleName());
+    private static final Logger logger = LogManager.getLogger(TestDataProvider.class.getSimpleName());
 
     private static String testDateFilePath;
 
@@ -23,6 +24,8 @@ public class TestDataProvider {
         testDateFilePath = System.getProperty("user.dir") + ConstantVariables.TEST_DATA_FILE_PATH;
 
         String testName = method.getName();
+
+        logger.info("Reading the test data for the test :: "+testName);
 
         Test test = method.getAnnotation(Test.class);
 
