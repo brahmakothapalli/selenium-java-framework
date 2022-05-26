@@ -14,7 +14,7 @@ public class BookStorePageActions extends BaseTest {
         try{
             TextHelper.enterText(driver, userName, uname);
             TextHelper.enterText(driver, password, pwd);
-            ClickHelper.click(driver, signIn);
+            ClickHelper.clickGivenElement(driver, signIn);
         }catch (Exception e){
             e.printStackTrace();
             throw (e);
