@@ -5,6 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TextHelper {
 
     private static final Logger logger = LogManager.getLogger(TextHelper.class.getSimpleName());
@@ -25,6 +28,19 @@ public class TextHelper {
         logger.info("Get text from the given element :: getText");
         try{
             return driver.findElement(locator).getText();
+        }catch (Exception e){
+            logger.error("Failed to get text from the given element :: getText", e);
+            throw (e);
+        }
+    }
+
+    public static List<String> getTextFromAllElements(WebDriver driver, By locator){
+        logger.info("Get text from the given element :: getText");
+        try{
+            List<String> allElementsText = new ArrayList<>();
+            driver.findElements(locator).stream().forEach(ele -> allElementsText.add(ele.getText()));
+            allElementsText.forEach(text -> System.out.println(text));
+            return allElementsText;
         }catch (Exception e){
             logger.error("Failed to get text from the given element :: getText", e);
             throw (e);
