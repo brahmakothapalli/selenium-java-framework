@@ -21,21 +21,6 @@ public class WaitHelper {
       Thread.sleep(millis);
     }
 
-    public static void waitForSpinnerIconInvisibility(WebDriver driver, By elementLocator) {
-
-        WebElement element = driver.findElement(elementLocator);
-        try {
-            if (element.isDisplayed()) {
-                waitForSpinnerIconInvisibility(driver, elementLocator);
-            } else {
-                logger.info("Spinner Icon invisible - proceeding to next page ");
-            }
-        } catch (Exception e) {
-            logger.error("Waiting for Spinner Icon invisibility failed " + e.getMessage());
-            throw (e);
-        }
-    }
-
     public static void waitForElementPresent(WebDriver driver, By elementLocator) {
 
         logger.info("Waiting for the element till it is present :: waitForElementPresent");
@@ -66,13 +51,19 @@ public class WaitHelper {
         }
     }
 
-    public static void waitForElementVisibility2(WebDriver driver, By elementLocator) {
+    public static void waitForElementVisibilityCustom(WebDriver driver, By elementLocator, int seconds) {
 
         logger.info("Waiting for element visibility:: waitForElementVisibility");
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConstantVariable.THIRTY_SECONDS));
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(elementLocator)));
-            logger.info("Element is visibility");
+            int period = seconds/3;
+            while(period > 0){
+                boolean result = ClickHelper.isElementExist(driver, elementLocator);
+                if(result){
+                    break;
+                }else{
+                    period-=1;
+                }
+            }
         } catch (Exception e) {
             logger.error("Failed - Element not visible or present :: waitForElementVisibility ",e);
             throw (e);

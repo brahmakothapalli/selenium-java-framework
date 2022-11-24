@@ -19,7 +19,7 @@ public class LoginPageTests extends BaseTest {
     @BeforeClass(alwaysRun = true)
     public void beforeClassSetUp() {
         classLogger = extentReport.createTest("SnapLoginPageTests");
-        logger.info("Creating object for SnapLoginPageActions :: beforeClassSetUp");
+        logger.info("Creating object for LoginPageActions :: beforeClassSetUp");
         loginPageActions = PageObjectManager.getLoginPageActions();
     }
 

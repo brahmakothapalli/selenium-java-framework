@@ -2,7 +2,7 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 
-public final class DashboardPageObjects {
+public class DashboardPageObjects {
 
 
     /******************************************* MENU DETAILS *********************************/
