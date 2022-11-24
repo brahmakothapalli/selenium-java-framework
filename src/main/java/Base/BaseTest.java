@@ -23,10 +23,9 @@ import org.testng.annotations.BeforeSuite;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 
 public class BaseTest {
@@ -41,10 +40,6 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {
-
-       // System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self'; style-src 'self' 'unsafe-inline'; font-src *");
-
-       // System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "default-src 'self'; img-src 'self' data: *; style-src 'self' 'unsafe-inline'; child-src 'self'; frame-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self'");
 
         logger.info("Executing the @BeforeSuite - configSetUpMethod() in BaseTest ");
 
@@ -70,7 +65,7 @@ public class BaseTest {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public static void beforeMethodSetUp(Method method, ITestContext context) throws MalformedURLException {
+    public static void beforeMethodSetUp(Method method, ITestContext context) {
         logger.info("Initialisation the browser  DriverManager.getDriver()::beforeMethodSetUp");
         List<String> list = TestDataProvider.getTestDescription();
         testLogger = classLogger.createNode(method.getName() + "_" + list.get(index));
@@ -78,7 +73,7 @@ public class BaseTest {
         DriverManager.getDriver().manage().deleteAllCookies();
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().navigate().to(appUrl);
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
 
