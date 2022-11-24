@@ -1,12 +1,8 @@
 package Utils.ExtentReport;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ExtentManager {
 
@@ -19,31 +15,26 @@ public class ExtentManager {
         return extent;
     }
 
-    private static void createInstance() {
-
-        DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy_HHmmss");
-
-        Date date = new Date();
+    public static void createInstance() {
 
         String reportPath = System.getProperty("user.dir") + "\\Reports\\" + "results_report.html";
 
-        //String reportPath = System.getProperty("user.dir") + "\\Reports\\" + dateFormat.format(date) + "_Parallel_ResultsReport.html";
-
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath);
 
         extent = new ExtentReports();
 
-        extent.attachReporter(htmlReporter);
+        extent.attachReporter(sparkReporter);
 
         //Report Config
-        htmlReporter.config().setDocumentTitle("Automation Results Report");
-        htmlReporter.config().setReportName("Regression Suite Execution Results");
-        htmlReporter.config().setTheme(Theme.DARK);
+        sparkReporter.config().setDocumentTitle("Automation Results Report");
+        sparkReporter.config().setReportName("Regression Suite Execution Results");
+        sparkReporter.config().setTheme(Theme.DARK);
 
         //System Info
         extent.setSystemInfo("OS", "Windows 10, 64-bit");
         extent.setSystemInfo("browserType", "Chrome");
         extent.setSystemInfo("Tester", "VAM Tester");
+
 
     }
 

@@ -1,7 +1,7 @@
 package Base;
 
 import Utils.DataProvider.TestDataProvider;
-import Utils.ExtentReport.ExtentReport;
+import Utils.ExtentReport.ExtentManager;
 import Utils.FileReader.ConfigDataReader;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -10,7 +10,6 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +37,7 @@ public class BaseTest {
     protected static ExtentTest testLogger;
     private static int index = 0;
 
-    private static Logger logger = Logger.getLogger(BaseTest.class);
+    private static final Logger logger = Logger.getLogger(BaseTest.class);
 
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {
@@ -67,7 +66,7 @@ public class BaseTest {
 
         logger.info("Initialising extent report");
 
-        extentReport = ExtentReport.ExtentReportInit();
+        extentReport = ExtentManager.getInstance();
     }
 
     @BeforeMethod(alwaysRun = true)

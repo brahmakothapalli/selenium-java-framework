@@ -60,11 +60,7 @@ public class TestListener  implements ITestListener {
 
             logger.info("Screenshot available at the location and trying to attach to the report");
 
-            try {
-                ExtentTestManager.getTest().fail("Test Case failed check the screenshot below " + ExtentTestManager.getTest().addScreenCaptureFromPath("Screenshots\\" + result.getName() + "_screenshot.png")+result.getThrowable().getMessage());
-            } catch (IOException e) {
-                logger.error("Exception in onTestFailure()",e);
-            }
+            ExtentTestManager.getTest().fail("Test Case failed check the screenshot below " + ExtentTestManager.getTest().addScreenCaptureFromPath("Screenshots\\" + result.getName() + "_screenshot.png")+result.getThrowable().getMessage());
 
         } else {
             logger.warn("Screenshot doesn't exist at the location");

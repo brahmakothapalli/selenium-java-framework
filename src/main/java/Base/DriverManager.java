@@ -55,19 +55,19 @@ public class DriverManager {
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }*/
-                    WebDriverManager.chromedriver().setup();
+//                    WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--incognito");
                     driver = new ChromeDriver(options);
                     threadDriver.set(driver);
                     break;
                 case FIREFOX:
-                    WebDriverManager.firefoxdriver().setup();
+//                    WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     threadDriver.set(driver);
                     break;
                 case IE:
-                    WebDriverManager.iedriver().setup();
+//                    WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     threadDriver.set(driver);
                     break;

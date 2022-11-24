@@ -1,14 +1,17 @@
 package Helper;
 
+import Enums.ConstantVariable;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class WaitHelper {
 
-    private static Logger logger = Logger.getLogger(WaitHelper.class);
+    private static final Logger logger = Logger.getLogger(WaitHelper.class);
 
     private WaitHelper() {
     }
@@ -38,7 +41,7 @@ public class WaitHelper {
         logger.info("Waiting for the element till it is present :: waitForElementPresent");
         try {
 
-            WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver, 30).ignoring(StaleElementReferenceException.class);
+            WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver, Duration.ofSeconds(ConstantVariable.THIRTY_SECONDS)).ignoring(StaleElementReferenceException.class);
             wait.until((ExpectedCondition<Boolean>) webDriver -> {
                 assert webDriver != null;
                 WebElement element = webDriver.findElement(elementLocator);
@@ -54,7 +57,7 @@ public class WaitHelper {
 
         logger.info("Waiting for element visibility:: waitForElementVisibility");
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConstantVariable.THIRTY_SECONDS));
             wait.until(ExpectedConditions.presenceOfElementLocated(elementLocator));
             logger.info("Element is visibility");
         } catch (Exception e) {
@@ -67,7 +70,7 @@ public class WaitHelper {
 
         logger.info("Waiting for element visibility:: waitForElementVisibility");
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConstantVariable.THIRTY_SECONDS));
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(elementLocator)));
             logger.info("Element is visibility");
         } catch (Exception e) {
@@ -92,7 +95,7 @@ public class WaitHelper {
         logger.info("Waiting for the element till it is clickable :: waitForElementClickable");
         try {
             WebElement element = driver.findElement(elementLocator);
-            WebDriverWait wait = new WebDriverWait(driver, 30);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConstantVariable.THIRTY_SECONDS));
             wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (Exception e) {
             logger.error("Failed to wait till the element is clickable :: waitForElementClickable::" + elementLocator);

@@ -4,22 +4,19 @@ import PageActions.*;
 
 public class PageObjectManager {
 
-    private static SnapLoginPageActions snapLoginPageActions;
+    private static LoginPageActions loginPageActions;
 
     private PageObjectManager(){
 
     }
 
 
-//    public static LoginPageActions getLoginPageActions(){
-//
-//        return (loginPageActions == null) ? loginPageActions = new LoginPageActions() : loginPageActions;
-//    }
+    public static LoginPageActions getLoginPageActions(){
 
-    public static SnapLoginPageActions getSnapLoginPageActions(){
-
-        return (snapLoginPageActions == null) ? snapLoginPageActions = new SnapLoginPageActions() : snapLoginPageActions;
+        return (loginPageActions == null) ? loginPageActions = new LoginPageActions() : loginPageActions;
     }
+
+
 
 
 }
