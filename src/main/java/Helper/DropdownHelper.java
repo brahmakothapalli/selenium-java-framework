@@ -1,6 +1,5 @@
 package Helper;
 
-import PageObjects.LoginPageObjects;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +22,6 @@ public class DropdownHelper {
             Select dropdown = new Select(driver.findElement(elementLocator));
             logger.info("The option selecting from dropdown is -"+value);
             dropdown.selectByValue(value);
-            WaitHelper.waitForSpinnerIconInvisibility(driver, LoginPageObjects.spinnerIcon);
         } catch (Exception e) {
             logger.error("Failed to select option from dropdown :: selectByValueFromDropdown");
             throw (e);
