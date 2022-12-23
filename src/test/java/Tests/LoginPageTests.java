@@ -3,6 +3,7 @@ package Tests;
 import Base.BaseTest;
 import Base.PageObjectManager;
 import PageActions.LoginPageActions;
+import Utils.DataProvider.JsonDataProvider;
 import Utils.DataProvider.TestDataProvider;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeClass;
@@ -23,7 +24,7 @@ public class LoginPageTests extends BaseTest {
         loginPageActions = PageObjectManager.getLoginPageActions();
     }
 
-    @Test(dataProvider = "ask-me", dataProviderClass = TestDataProvider.class, description = "LoginPageData")
+    @Test(dataProvider = "jsonDataProvider", dataProviderClass = JsonDataProvider.class, description = "googleTestData")
     public void ValidateLoginFunctionalityTest(Map<String, String> map) {
 
         System.out.println("Test Case In Progress");
