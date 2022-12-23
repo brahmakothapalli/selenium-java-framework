@@ -1,0 +1,15 @@
+{
+  "testSearchDockerTutorials": [
+    {
+      "runMode": "Y",
+      "searchKeyword": "Docker Hub"
+    }
+  ],
+  "testSearchMyBlog": [
+    {
+      "runMode": "Y",
+      "searchKeyword": "@brahmakothapalli hashnode",
+      "title": "Brahma's blog"
+    }
+  ]
+}
