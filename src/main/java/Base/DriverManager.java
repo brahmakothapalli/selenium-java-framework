@@ -1,19 +1,20 @@
 package Base;
 
 import Enums.BrowserType;
+import Utils.ExtentReport.ExtentReportManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 
 public class DriverManager {
 
     private static final Logger logger = Logger.getLogger(DriverManager.class);
 
-    private static String browserType = "CHROME";
+    private static String browserType;
 
     private DriverManager(){
 
@@ -22,8 +23,8 @@ public class DriverManager {
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
 
     static synchronized void setBrowserType(String browser) {
-
         logger.info("Setting the browserType " + browser + " in :: setBrowserType");
+        ExtentReportManager.logInfoDetails("The selected browser for execution is - "+browser);
         browserType = browser;
     }
 
@@ -34,20 +35,22 @@ public class DriverManager {
         BrowserType browser = BrowserType.valueOf(browserType);
 
         if (driver == null) {
-
             switch (browser) {
                 case CHROME:
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--incognito");
                     driver = new ChromeDriver(options);
+                    ExtentReportManager.logInfoDetails("Chrome driver is initialized :: getDriver");
                     threadDriver.set(driver);
                     break;
                 case FIREFOX:
                     driver = new FirefoxDriver();
+                    ExtentReportManager.logInfoDetails("Firefox driver is initialized :: getDriver");
                     threadDriver.set(driver);
                     break;
                 case EDGE:
-                    driver = new InternetExplorerDriver();
+                    driver = new EdgeDriver();
+                    ExtentReportManager.logInfoDetails("Edge driver is initialized :: getDriver");
                     threadDriver.set(driver);
                     break;
             }
@@ -56,6 +59,7 @@ public class DriverManager {
     }
 
     static void quitDriver() {
+        ExtentReportManager.logInfoDetails("Closing the browser :: quitDriver");
         getDriver().quit();
         DriverManager.threadDriver.set(null);
     }
