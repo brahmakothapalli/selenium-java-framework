@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DropdownHelper {
 
-    private static Logger logger = Logger.getLogger(DropdownHelper.class);
+    private static final Logger logger = Logger.getLogger(DropdownHelper.class);
 
     private DropdownHelper() {
     }

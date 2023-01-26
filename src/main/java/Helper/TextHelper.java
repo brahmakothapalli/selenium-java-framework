@@ -28,12 +28,21 @@ public class TextHelper {
     }
 
     public static String getText(WebDriver driver, By elementLocator) {
-
-        logger.info("Getting the text from the given element "+elementLocator+" :: getText: ");
+        logger.info("Getting the text from the given element "+elementLocator+" :: getText ");
         try {
             return driver.findElement(elementLocator).getText();
         } catch (Exception e) {
             logger.error("Failed to get the text from the element " + elementLocator+" :: getText");
+            throw (e);
+        }
+    }
+
+    public static String getTextWithAttribute(WebDriver driver, By elementLocator, String attribute) {
+        logger.info("Getting the text from the given element "+elementLocator+" :: getTextWithAttribute ");
+        try {
+            return driver.findElement(elementLocator).getAttribute(attribute);
+        } catch (Exception e) {
+            logger.error("Failed to get the text from the element " + elementLocator+" :: getTextWithAttribute");
             throw (e);
         }
     }
