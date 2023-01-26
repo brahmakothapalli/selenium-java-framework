@@ -1,7 +1,7 @@
 package Base;
 
 import Utils.DataProvider.TestDataProvider;
-import Utils.ExtentReport.ExtentManager;
+import Utils.ExtentReport.ExtentReportManager;
 import Utils.FileReader.ConfigDataReader;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -45,6 +45,7 @@ public class BaseTest {
 
         Properties prop;
 
+
         prop = ConfigDataReader.ConfigPropInit();
 
         logger.info("Config Properties Initialised");
@@ -61,14 +62,14 @@ public class BaseTest {
 
         logger.info("Initialising extent report");
 
-        extentReport = ExtentManager.getInstance();
+        extentReport = ExtentReportManager.getInstance();
     }
 
     @BeforeMethod(alwaysRun = true)
     public static void beforeMethodSetUp(Method method, ITestContext context) {
         logger.info("Initialisation the browser  DriverManager.getDriver()::beforeMethodSetUp");
         List<String> list = TestDataProvider.getTestDescription();
-        testLogger = classLogger.createNode(method.getName() + "_" + list.get(index));
+//        testLogger = classLogger.createNode(method.getName() + "_" + list.get(index));
         index++;
         DriverManager.getDriver().manage().deleteAllCookies();
         DriverManager.getDriver().manage().window().maximize();
@@ -141,13 +142,13 @@ public class BaseTest {
     public static synchronized void updateTestStatus(ITestResult result) {
 
         logger.info("updating result of test script " + result.getName() + " to report :: updateTestStatus");
-        try {
+        /*try {
             logTestStatusToReport(DriverManager.getDriver(), result);
         } catch (IOException e) {
             logger.error("Failed to update the status of the test case:: updateTestStatus" + e);
-        }
+        }*/
         DriverManager.quitDriver();
-        testLogger.log(Status.PASS, "Closed the browser successfully");
+//        testLogger.log(Status.PASS, "Closed the browser successfully");
     }
 
 

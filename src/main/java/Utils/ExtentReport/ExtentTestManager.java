@@ -10,17 +10,16 @@ import java.util.Map;
 
 public class ExtentTestManager {
 
-    private static Logger logger = Logger.getLogger(ExtentTestManager.class);
+    private static final Logger logger = Logger.getLogger(ExtentTestManager.class);
 
-    private static Map<Integer, ExtentTest> extentTestMap = new HashMap<Integer, ExtentTest>();
+    private static final Map<Integer, ExtentTest> extentTestMap = new HashMap<Integer, ExtentTest>();
 
-    private static ExtentReports extent = ExtentManager.getInstance();
+    private static final ExtentReports extent = ExtentReportManager.getInstance();
 
     private static ExtentTest suite;
 
 
     public static synchronized void startSuite(String suiteName) {
-
         logger.info("Creating suite node - startSuite()");
         suite = extent.createTest(suiteName);
     }
@@ -30,7 +29,6 @@ public class ExtentTestManager {
         logger.info("Creating test node - startTest()");
         ExtentTest test = suite.createNode(testName);
         extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
-
     }
 
     public static synchronized ExtentTest getTest() {

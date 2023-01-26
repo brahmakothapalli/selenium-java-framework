@@ -3,7 +3,7 @@ package Utils.TestNGListeners;
 
 import Base.BaseTest;
 import Base.DriverManager;
-import Utils.ExtentReport.ExtentManager;
+import Utils.ExtentReport.ExtentReportManager;
 import Utils.ExtentReport.ExtentTestManager;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
@@ -14,37 +14,32 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.File;
-import java.io.IOException;
 
 public class TestListener  implements ITestListener {
 
-    private static Logger logger = Logger.getLogger(TestListener.class);
+    private static final Logger logger = Logger.getLogger(TestListener.class);
 
     @Override
     public void onStart(ITestContext context) {
-
         logger.info("Test suite started :: onStart() - "+context.getName());
         ExtentTestManager.startSuite(context.getName());
     }
 
     @Override
     public void onFinish(ITestContext context) {
-
         logger.info("Test suite finished :: onFinish() - "+context.getName());
         ExtentTestManager.endTest();
-        ExtentManager.getInstance().flush();
+        ExtentReportManager.getInstance().flush();
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-
         logger.info("Test case started :: onTestStart() - "+result.getMethod().getMethodName());
         ExtentTestManager.startTest(result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-
         logger.info("Test case passed :: onTestSuccess() - "+result.getMethod().getMethodName());
         ExtentTestManager.getTest().log(Status.PASS, MarkupHelper.createLabel("Test Passed", ExtentColor.GREEN));
     }
@@ -70,14 +65,12 @@ public class TestListener  implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-
         logger.info("Test case skipped :: onTestSkipped() - "+result.getMethod().getMethodName());
         ExtentTestManager.getTest().log(Status.SKIP, MarkupHelper.createLabel("Test Skipped", ExtentColor.YELLOW));
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-
         logger.info("Test case FailedButWithinSuccessPercentage :: onTestFailedButWithinSuccessPercentage() - "+result.getMethod().getMethodName());
         ExtentTestManager.getTest().log(Status.WARNING, MarkupHelper.createLabel("Test Skipped", ExtentColor.AMBER));
     }

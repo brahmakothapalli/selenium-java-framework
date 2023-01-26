@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="RegressionSuite" verbose="1" parallel="methods" thread-count="3">
-    <listeners>
-        <listener class-name="Utils.TestNGListeners.TestListener"/>
-    </listeners>
-
-<!--    <test name="PremiumValidationsWorkflow">-->
-
-<!--        <classes>-->
-<!--            <class name="Tests.MotorProductsPolicyWorkflows.PremiumValidationsWorkflow"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-    <test name="TPRatesValidation">
+<suite name="RegressionSuite" verbose="1" parallel="methods" thread-count="1">
+<!--    <listeners>-->
+<!--        <listener class-name="Utils.TestNGListeners.ReportTestListener"/>-->
+<!--    </listeners>-->
+    <test name="Test">
         <classes>
-            <class name="Tests.MotorProductsPolicyWorkflows.TPRatesValidation"/>
+            <class name="Tests.GoogleSearchTests"/>
         </classes>
     </test>
-
-
 </suite>

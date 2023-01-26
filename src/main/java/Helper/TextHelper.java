@@ -1,26 +1,28 @@
 package Helper;
 
 
+import Utils.ExtentReport.ExtentReportManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class TextHelper {
 
-    private static Logger logger = Logger.getLogger(TextHelper.class);
+    private static final Logger logger = Logger.getLogger(TextHelper.class);
     
     private TextHelper(){
         
     }
 
     public static void enterText(WebDriver driver, By elementLocator, String text) {
-
         logger.info("Entering the text into the field " + elementLocator + " :: enterText");
+        ExtentReportManager.logInfoDetails("Entering given text :: enterText");
         try {
             driver.findElement(elementLocator).clear();
             driver.findElement(elementLocator).sendKeys(text);
         } catch (Exception e) {
             logger.error("Failed to enter the text to the element " + elementLocator+" :: enterText");
+            ExtentReportManager.logWarningDetails("Failed to enter given text :: enterText "+e.getMessage());
             throw (e);
         }
     }

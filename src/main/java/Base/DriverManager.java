@@ -13,7 +13,7 @@ public class DriverManager {
 
     private static final Logger logger = Logger.getLogger(DriverManager.class);
 
-    private static String browserType;
+    private static String browserType = "CHROME";
 
     private DriverManager(){
 

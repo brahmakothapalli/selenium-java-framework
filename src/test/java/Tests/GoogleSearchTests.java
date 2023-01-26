@@ -1,34 +1,27 @@
 package Tests;
 
+import Base.BaseTest;
+import Base.DriverManager;
+import Helper.TextHelper;
 import Utils.DataProvider.JsonDataProvider;
+import Utils.ExtentReport.ExtentReportManager;
+import Utils.TestNGListeners.ReportTestListener;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+@Listeners(ReportTestListener.class)
+public class GoogleSearchTests extends BaseTest {
 
-public class GoogleSearchTests {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    }
 
     @Test(dataProvider = "jsonDataProvider", dataProviderClass = JsonDataProvider.class, description = "GoogleSearchTestData")
     public void testSearchMyBlog(JSONObject jsonObject){
-        driver.get("http://www.google.com");
-        driver.findElement(By.name("q")).sendKeys(jsonObject.get("searchKeyword").toString(), Keys.ENTER);
-        driver.findElement(By.xpath("//h3[contains(text(), 'Brahma')]")).click();
-        assert driver.getTitle().equalsIgnoreCase(jsonObject.get("title").toString());
-        driver.quit();
+        ExtentReportManager.logInfoDetails("Executing the test :: testSearchMyBlog");
+        DriverManager.getDriver().get("http://www.google.com");
+        TextHelper.enterText(DriverManager.getDriver(), By.name("q"), jsonObject.get("searchKeyword").toString());
+        DriverManager.getDriver().findElement(By.xpath("//h3[contains(text(), 'Brahma')]")).click();
+        assert DriverManager.getDriver().getTitle().equalsIgnoreCase(jsonObject.get("title").toString());
     }
 
 }
