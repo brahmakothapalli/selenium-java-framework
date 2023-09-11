@@ -2,7 +2,7 @@ package Tests;
 
 import Base.BaseTest;
 import Base.DriverManager;
-import Helper.TextHelper;
+import helper.TextHelper;
 import Utils.DataProvider.JsonDataProvider;
 import Utils.ExtentReport.ExtentReportManager;
 import Utils.TestNGListeners.ReportTestListener;

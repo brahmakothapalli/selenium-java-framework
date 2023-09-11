@@ -1,4 +1,4 @@
-package Helper;
+package helper;
 
 import Utils.ExtentReport.ExtentReportManager;
 import org.apache.log4j.Logger;
@@ -25,7 +25,7 @@ public class ClickHelper {
         } catch (StaleElementReferenceException e) {
             ExtentReportManager.logWarningDetails("Clicking on the given element thrown an exception :: clickElement "+e.getMessage());
             logger.info("Trying to clicking on the element " + elementLocator + "using JavaScript from clickElement method");
-            WebElement element = WaitHelper.waitForStaleElement(driver, elementLocator);
+            WebElement element = WaitHelper.waitForStaleElement(elementLocator);
             element.click();
         } catch (Exception e) {
             logger.error("Failed to clicking on the element " + elementLocator + "in :: clickElement");
