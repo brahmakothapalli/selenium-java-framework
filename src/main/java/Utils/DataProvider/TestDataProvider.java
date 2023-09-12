@@ -1,6 +1,6 @@
 package Utils.DataProvider;
 
-import Base.BaseTest;
+import base.BaseTest;
 import Utils.FileReader.ConfigDataReader;
 import Utils.FileReader.ExcelDataReader;
 import org.apache.log4j.Logger;

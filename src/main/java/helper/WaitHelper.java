@@ -1,6 +1,6 @@
 package helper;
 
-import Base.DriverManager;
+import base.DriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -39,17 +39,16 @@ public class WaitHelper {
         }
     }
 
-    public static WebElement waitForStaleElement(WebDriver driver, By elementLocator, long pollingPeriod) throws InterruptedException {
+    public static WebElement waitForStaleElement(WebDriver driver, By elementLocator, long timeout) throws InterruptedException {
         logger.info("Handling the stale element with given locator "+elementLocator+" :: waitForStaleElement");
         WebElement element = null;
-        while(pollingPeriod>0){
+        while(timeout>0){
             try {
                  element = driver.findElement(elementLocator);
             } catch (StaleElementReferenceException e) {
                 logger.error("Element is stale, trying to find again :: waitForStaleElement");
                 Thread.sleep(3000);
-                pollingPeriod = pollingPeriod -1;
-                pollingPeriod-=1;
+                timeout-=1;
             }
         }
         return element;

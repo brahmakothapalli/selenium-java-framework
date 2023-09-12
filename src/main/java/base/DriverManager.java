@@ -1,4 +1,4 @@
-package Base;
+package base;
 
 import Enums.BrowserType;
 import Utils.ExtentReport.ExtentReportManager;

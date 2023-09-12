@@ -1,4 +1,4 @@
-package Base;
+package base;
 
 import Utils.ExtentReport.ExtentReportManager;
 import Utils.FileReader.ConfigDataReader;

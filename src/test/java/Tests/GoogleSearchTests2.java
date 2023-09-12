@@ -1,7 +1,7 @@
 package Tests;
 
-import Base.BaseTest;
-import Base.DriverManager;
+import base.BaseTest;
+import base.DriverManager;
 import helper.TextHelper;
 import Utils.DataProvider.JsonDataProvider;
 import Utils.ExtentReport.ExtentReportManager;

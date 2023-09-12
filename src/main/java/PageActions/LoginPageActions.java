@@ -1,6 +1,6 @@
 package PageActions;
 
-import Base.BaseTest;
+import base.BaseTest;
 import org.apache.log4j.Logger;
 
 public class LoginPageActions extends BaseTest {

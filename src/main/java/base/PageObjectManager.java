@@ -1,4 +1,4 @@
-package Base;
+package base;
 
 import PageActions.*;
 

@@ -1,5 +1,6 @@
 package helper;
 
+import base.DriverManager;
 import Utils.ExtentReport.ExtentReportManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -13,7 +14,7 @@ public class ClickHelper {
 
     }
 
-    public static void clickElement(WebDriver driver, By elementLocator) {
+    public static void clickElement(WebDriver driver, By elementLocator) throws InterruptedException {
         ExtentReportManager.logInfoDetails("Clicking on the given element :: clickElement");
         logger.info("Clicking on the element " + elementLocator + "in :: clickElement");
         try {
@@ -25,7 +26,7 @@ public class ClickHelper {
         } catch (StaleElementReferenceException e) {
             ExtentReportManager.logWarningDetails("Clicking on the given element thrown an exception :: clickElement "+e.getMessage());
             logger.info("Trying to clicking on the element " + elementLocator + "using JavaScript from clickElement method");
-            WebElement element = WaitHelper.waitForStaleElement(elementLocator);
+            WebElement element = WaitHelper.waitForStaleElement(DriverManager.getDriver(), elementLocator, 10);
             element.click();
         } catch (Exception e) {
             logger.error("Failed to clicking on the element " + elementLocator + "in :: clickElement");
