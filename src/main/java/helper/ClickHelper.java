@@ -1,7 +1,7 @@
 package helper;
 
 import base.DriverManager;
-import Utils.ExtentReport.ExtentReportManager;
+import utils.extentReport.ExtentReportManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 
@@ -36,12 +36,8 @@ public class ClickHelper {
 
     public static boolean isElementExist(WebDriver driver, By elementLocator) {
         ExtentReportManager.logInfoDetails("checking whether element exists or not :: isElementExist");
-        boolean exist = false;
         logger.info("Checking whether the given element exist or not :: isElementExist " + elementLocator);
-        if(driver.findElements(elementLocator).size()>0){
-            exist = true;
-        }
-        return exist;
+        return !driver.findElements(elementLocator).isEmpty();
     }
 
     public static void javaScriptExecutorClick(WebDriver driver, By elementLocator) {

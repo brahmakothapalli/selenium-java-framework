@@ -1,4 +1,4 @@
-package PageActions;
+package pageActions;
 
 import base.BaseTest;
 import org.apache.log4j.Logger;

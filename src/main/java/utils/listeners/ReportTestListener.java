@@ -1,8 +1,8 @@
-package Utils.TestNGListeners;
+package utils.listeners;
 
 import base.BaseTest;
 import base.DriverManager;
-import Utils.ExtentReport.ExtentReportManager;
+import utils.extentReport.ExtentReportManager;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;

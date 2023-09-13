@@ -1,8 +1,8 @@
-package Utils.DataProvider;
+package utils.dataProvider;
 
 import base.BaseTest;
-import Utils.FileReader.ConfigDataReader;
-import Utils.FileReader.ExcelDataReader;
+import utils.fileReader.ConfigDataReader;
+import utils.fileReader.ExcelDataReader;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.DataProvider;

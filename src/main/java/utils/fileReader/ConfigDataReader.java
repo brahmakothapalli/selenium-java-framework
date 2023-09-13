@@ -1,7 +1,7 @@
-package Utils.FileReader;
+package utils.fileReader;
 
 
-import Enums.ConstantVariable;
+import enums.ConstantVariable;
 import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.FileInputStream;

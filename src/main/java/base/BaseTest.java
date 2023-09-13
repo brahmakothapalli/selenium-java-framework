@@ -1,7 +1,5 @@
 package base;
 
-import Utils.ExtentReport.ExtentReportManager;
-import Utils.FileReader.ConfigDataReader;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -12,6 +10,8 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import utils.extentReport.ExtentReportManager;
+import utils.fileReader.ConfigDataReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,17 +21,14 @@ import java.util.Properties;
 
 
 public class BaseTest {
-
-    public static String appUrl;
-
+    private static String appUrl = null;
     private static final Logger logger = Logger.getLogger(BaseTest.class);
 
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {
         logger.info("Executing the @BeforeSuite - configSetUpMethod() in BaseTest ");
         ExtentReportManager.logInfoDetails("Reading the configuration details from config properties file :: configSetUpMethod");
-        Properties prop;
-        prop = ConfigDataReader.ConfigPropInit();
+        Properties prop = ConfigDataReader.ConfigPropInit();
         logger.info("Config Properties Initialised");
         String browserName = prop.getProperty("browserType");
         logger.info("Selected browserType is: " + browserName);

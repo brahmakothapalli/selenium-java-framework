@@ -1,13 +1,15 @@
 package base;
 
-import Enums.BrowserType;
-import Utils.ExtentReport.ExtentReportManager;
+import enums.BrowserType;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import utils.extentReport.ExtentReportManager;
+import utils.fileReader.ConfigDataReader;
 
 
 public class DriverManager {
@@ -19,21 +21,15 @@ public class DriverManager {
     private DriverManager(){
 
     }
-
-    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
-
+    private static ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<>();
     static synchronized void setBrowserType(String browser) {
         logger.info("Setting the browserType " + browser + " in :: setBrowserType");
         ExtentReportManager.logInfoDetails("The selected browser for execution is - "+browser);
         browserType = browser;
     }
-
-    public static synchronized WebDriver getDriver()  {
-
-        WebDriver driver = DriverManager.threadDriver.get();
-
+    public static synchronized RemoteWebDriver getDriver()  {
+        RemoteWebDriver driver = DriverManager.threadDriver.get();
         BrowserType browser = BrowserType.valueOf(browserType);
-
         if (driver == null) {
             switch (browser) {
                 case CHROME:
@@ -61,6 +57,6 @@ public class DriverManager {
     static void quitDriver() {
         ExtentReportManager.logInfoDetails("Closing the browser :: quitDriver");
         getDriver().quit();
-        DriverManager.threadDriver.set(null);
+        DriverManager.threadDriver.remove();
     }
 }

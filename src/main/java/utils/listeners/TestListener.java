@@ -1,10 +1,10 @@
-package Utils.TestNGListeners;
+package utils.listeners;
 
 
 import base.BaseTest;
 import base.DriverManager;
-import Utils.ExtentReport.ExtentReportManager;
-import Utils.ExtentReport.ExtentTestManager;
+import utils.extentReport.ExtentReportManager;
+import utils.extentReport.ExtentTestManager;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;

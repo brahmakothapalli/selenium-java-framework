@@ -1,6 +1,6 @@
-package Utils.ExtentReport;
+package utils.extentReport;
 
-import Utils.TestNGListeners.ReportTestListener;
+import utils.listeners.ReportTestListener;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;

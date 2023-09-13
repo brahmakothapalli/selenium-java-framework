@@ -1,7 +1,7 @@
 package helper;
 
 
-import Utils.ExtentReport.ExtentReportManager;
+import utils.extentReport.ExtentReportManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

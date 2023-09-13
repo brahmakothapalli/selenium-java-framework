@@ -1,11 +1,11 @@
-package Tests;
+package tests;
 
 import base.BaseTest;
 import base.DriverManager;
 import helper.TextHelper;
-import Utils.DataProvider.JsonDataProvider;
-import Utils.ExtentReport.ExtentReportManager;
-import Utils.TestNGListeners.ReportTestListener;
+import utils.dataProvider.JsonDataProvider;
+import utils.extentReport.ExtentReportManager;
+import utils.listeners.ReportTestListener;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
