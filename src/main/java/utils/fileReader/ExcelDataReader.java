@@ -1,12 +1,12 @@
 package utils.fileReader;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import utils.logging.Logger;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,12 +15,10 @@ import java.util.Objects;
 
 public class ExcelDataReader {
 
-    private static Logger logger = Logger.getLogger(ExcelDataReader.class);
+    private static final Logger logger = Logger.getInstance();
     private static XSSFWorkbook excelWorkbook;
 
-    private ExcelDataReader() {
-
-    }
+    private ExcelDataReader() {    }
 
     public static XSSFSheet getExcelSheet(String filePath, String sheetName) {
 

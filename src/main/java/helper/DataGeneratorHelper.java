@@ -3,10 +3,9 @@ package helper;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.person.Address;
 import io.codearte.jfairy.producer.person.Person;
-import org.apache.log4j.Logger;
+import utils.logging.Logger;
 
 import java.security.NoSuchAlgorithmException;
-
 import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
@@ -16,7 +15,7 @@ public class DataGeneratorHelper {
     private DataGeneratorHelper(){
     }
 
-    private static Logger logger = Logger.getLogger(DataGeneratorHelper.class);
+    private static final Logger logger = Logger.getInstance();
 
     private static Random random;
 
@@ -24,7 +23,7 @@ public class DataGeneratorHelper {
         try {
             random = SecureRandom.getInstanceStrong();
         } catch (NoSuchAlgorithmException e) {
-            logger.error("Exception when creating obj to Random() ",e);
+            logger.error("Exception when creating obj to Random() "+e);
         }
     }
 

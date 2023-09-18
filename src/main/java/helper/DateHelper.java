@@ -1,18 +1,16 @@
 package helper;
 
-import org.apache.log4j.Logger;
-
+import utils.logging.Logger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-//import static PageObjects.PaymentPageObjects.*;
 
 
 public class DateHelper {
 
-    private static Logger logger = Logger.getLogger(DateHelper.class);
+    private static final Logger logger = Logger.getInstance();
 
     private static final String DATE_FORMAT = "dd-MMM-yyyy";
 
@@ -35,7 +33,7 @@ public class DateHelper {
 
             return dateFormat.format(date);
         } catch (Exception e) {
-            logger.error("Failed to return the back date", e);
+            logger.error("Failed to return the back date"+e.getMessage());
             return null;
         }
     }
@@ -51,7 +49,7 @@ public class DateHelper {
 
             return dateFormat.format(date);
         } catch (Exception e) {
-            logger.error("Failed to return the back date", e);
+            logger.error("Failed to return the back date"+e.getMessage());
             return null;
         }
     }
@@ -70,9 +68,7 @@ public class DateHelper {
             return currentDate.minusDays(days).format(dateTimeFormatter);
 
         } catch (Exception e) {
-
-            logger.error("Failed to return the back date", e);
-
+            logger.error("Failed to return the back date"+e.getMessage());
             return null;
         }
 
@@ -94,7 +90,7 @@ public class DateHelper {
 
         } catch (Exception e) {
 
-            logger.error("Failed to return the future date", e);
+            logger.error("Failed to return the future date"+e.getMessage());
 
             return null;
         }
@@ -119,7 +115,7 @@ public class DateHelper {
             }
 
         } catch (Exception e) {
-            logger.error("Failed to return the year by given number of years ", e);
+            logger.error("Failed to return the year by given number of years "+e.getMessage());
             return null;
         }
     }
@@ -138,7 +134,7 @@ public class DateHelper {
 
         } catch (Exception e) {
 
-            logger.error("Failed to return the Re Derived Inception Date ", e);
+            logger.error("Failed to return the Re Derived Inception Date "+e.getMessage());
 
             return null;
         }

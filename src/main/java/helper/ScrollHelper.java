@@ -1,14 +1,14 @@
 package helper;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.logging.Logger;
 
 public class ScrollHelper {
 
-    private static Logger logger = Logger.getLogger(ScrollHelper.class);
+    private static final Logger logger = Logger.getInstance();
 
     private ScrollHelper() {
     }

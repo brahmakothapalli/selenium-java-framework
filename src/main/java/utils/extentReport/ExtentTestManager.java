@@ -2,7 +2,7 @@ package utils.extentReport;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import org.apache.log4j.Logger;
+import utils.logging.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ExtentTestManager {
 
-    private static final Logger logger = Logger.getLogger(ExtentTestManager.class);
+    private static final Logger logger = Logger.getInstance();
 
     private static final Map<Integer, ExtentTest> extentTestMap = new HashMap<Integer, ExtentTest>();
 

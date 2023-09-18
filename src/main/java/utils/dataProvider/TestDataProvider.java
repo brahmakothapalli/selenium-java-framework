@@ -1,19 +1,19 @@
 package utils.dataProvider;
 
 import base.BaseTest;
-import utils.fileReader.ConfigDataReader;
-import utils.fileReader.ExcelDataReader;
-import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.fileReader.ConfigDataReader;
+import utils.fileReader.ExcelDataReader;
+import utils.logging.Logger;
 
 import java.lang.reflect.Method;
 import java.util.*;
 
 public class TestDataProvider extends BaseTest {
 
-    private static Logger logger = Logger.getLogger(TestDataProvider.class);
+    private static final Logger logger = Logger.getInstance();
 
     private static List<String> testDescription = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class TestDataProvider extends BaseTest {
 
         logger.info("Executing dataProvider method");
 
-        testDataFilePath = ConfigDataReader.ConfigPropInit().getProperty("testDataFilePath");
+        testDataFilePath = ConfigDataReader.configPropInit().getProperty("testDataFilePath");
 
         logger.info("Test Data Path : " + testDataFilePath);
 

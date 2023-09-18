@@ -1,19 +1,19 @@
 package utils.extentReport;
 
-import utils.listeners.ReportTestListener;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import org.apache.log4j.Logger;
+import utils.listeners.ReportTestListener;
+import utils.logging.Logger;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ExtentReportManager {
 
-    private static final Logger logger = Logger.getLogger(ExtentReportManager.class);
+    private static final Logger logger = Logger.getInstance();
 
     private ExtentReportManager(){}
 
@@ -51,7 +51,7 @@ public class ExtentReportManager {
     }
 
     public static void logInfoDetails(String info){
-        ReportTestListener.extentTest.get().info(MarkupHelper.createLabel(info, ExtentColor.GREY));
+        ReportTestListener.extentTest.get().info(MarkupHelper.createLabel(info, ExtentColor.BLUE));
     }
 
     public static void logPassDetails(String info){

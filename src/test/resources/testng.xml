@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="RegressionSuite" verbose="1" parallel="methods" thread-count="1">
-   <!-- <listeners>
+    <listeners>
         <listener class-name="utils.listeners.ReportTestListener"/>
-    </listeners>-->
+    </listeners>
     <test name="Test">
         <classes>
             <class name="tests.GooglePageTests">

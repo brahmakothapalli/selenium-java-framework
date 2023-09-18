@@ -1,23 +1,19 @@
 package base;
 
 import enums.BrowserType;
-import org.apache.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.extentReport.ExtentReportManager;
-import utils.fileReader.ConfigDataReader;
+import utils.logging.Logger;
 
 
 public class DriverManager {
 
-    private static final Logger logger = Logger.getLogger(DriverManager.class);
-
+    private static final Logger logger = Logger.getInstance();
     private static String browserType;
-
     private DriverManager(){
 
     }

@@ -1,11 +1,11 @@
 package pageActions;
 
 import base.BaseTest;
-import org.apache.log4j.Logger;
+import utils.logging.Logger;
 
 public class LoginPageActions extends BaseTest {
 
-    private static final Logger logger = Logger.getLogger(LoginPageActions.class);
+    private static final Logger logger = Logger.getInstance();
 
 
 

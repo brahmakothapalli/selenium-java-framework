@@ -2,13 +2,13 @@ package helper;
 
 
 import utils.extentReport.ExtentReportManager;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.logging.Logger;
 
 public class TextHelper {
 
-    private static final Logger logger = Logger.getLogger(TextHelper.class);
+    private static final Logger logger = Logger.getInstance();
     
     private TextHelper(){
         

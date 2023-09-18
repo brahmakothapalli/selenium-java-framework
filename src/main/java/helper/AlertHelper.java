@@ -1,13 +1,13 @@
 package helper;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import utils.logging.Logger;
 
 public class AlertHelper {
 
-    private static Logger logger = Logger.getLogger(AlertHelper.class);
+    private static final Logger logger = Logger.getInstance();
 
     private AlertHelper() {
     }

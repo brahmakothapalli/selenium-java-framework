@@ -2,7 +2,8 @@ package utils.fileReader;
 
 
 import enums.ConstantVariable;
-import org.apache.log4j.Logger;
+import utils.logging.Logger;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.util.Properties;
 
 public class ConfigDataReader {
 
-    private static final Logger logger = Logger.getLogger(ConfigDataReader.class);
+    private static final Logger logger = Logger.getInstance();
 
     private static Properties prop;
 
@@ -20,7 +21,7 @@ public class ConfigDataReader {
     }
 
 
-    public static Properties ConfigPropInit() {
+    public static Properties configPropInit() {
 
         logger.info("Loading the properties file in :: ConfigPropInit ");
 

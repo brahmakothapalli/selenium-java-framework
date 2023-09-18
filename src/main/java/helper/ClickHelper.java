@@ -2,13 +2,13 @@ package helper;
 
 import base.DriverManager;
 import utils.extentReport.ExtentReportManager;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import utils.logging.Logger;
 
 
 public class ClickHelper {
 
-    private static final Logger logger = Logger.getLogger(ClickHelper.class);
+    private static final Logger logger = Logger.getInstance();
 
     private ClickHelper() {
 
@@ -18,6 +18,7 @@ public class ClickHelper {
         ExtentReportManager.logInfoDetails("Clicking on the given element :: clickElement");
         logger.info("Clicking on the element " + elementLocator + "in :: clickElement");
         try {
+            WaitHelper.waitForElementVisibility(elementLocator);
             driver.findElement(elementLocator).click();
         } catch (NoSuchElementException | ElementClickInterceptedException e) {
             ExtentReportManager.logWarningDetails("Clicking on the given element thrown an exception :: clickElement "+e.getMessage());

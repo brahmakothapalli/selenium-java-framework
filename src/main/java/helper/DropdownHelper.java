@@ -1,17 +1,17 @@
 package helper;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import utils.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DropdownHelper {
 
-    private static final Logger logger = Logger.getLogger(DropdownHelper.class);
+    private static final Logger logger = Logger.getInstance();
 
     private DropdownHelper() {
     }

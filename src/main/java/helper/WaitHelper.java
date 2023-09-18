@@ -1,18 +1,18 @@
 package helper;
 
 import base.DriverManager;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import utils.logging.Logger;
 
 import java.time.Duration;
 
 public class WaitHelper {
 
-    private static final Logger logger = Logger.getLogger(WaitHelper.class);
+    private static final Logger logger = Logger.getInstance();
     private static final long TIMEOUT_PERIOD = 60;
     private static final long POLLING_PERIOD = 1;
 
@@ -25,7 +25,7 @@ public class WaitHelper {
         try {
             waitFor(ExpectedConditions.visibilityOfElementLocated(elementLocator));
         } catch (Exception e) {
-            logger.error("Failed - Element not visible on the page with given locator"+elementLocator+" :: waitForElementVisibility ", e);
+            logger.error("Failed - Element not visible on the page with given locator"+elementLocator+" :: waitForElementVisibility "+e.getMessage());
             throw (e);
         }
     }
@@ -35,7 +35,7 @@ public class WaitHelper {
         try {
             waitFor(ExpectedConditions.visibilityOf(element));
         } catch (Exception e) {
-            logger.error("Failed - Element not visible on the page with given locator"+element+" :: waitForElementVisibility ", e);
+            logger.error("Failed - Element not visible on the page with given locator"+element+" :: waitForElementVisibility "+e.getMessage());
             throw (e);
         }
     }
