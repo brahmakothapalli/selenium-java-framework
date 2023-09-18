@@ -5,7 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,11 +18,11 @@ public class JsonDataProvider {
 
         String testName = method.getName();
 
-        Test testAnnotation = method.getAnnotation(Test.class);
+        String testClassName = method.getAnnotation(Parameters.class).value()[0];
 
-        String fileName = testAnnotation.description();
+        String filePath = "src/main/resources/"+testClassName+".json";
 
-        FileReader fileReader = new FileReader("src/main/resources/"+fileName+".json");
+        FileReader fileReader = new FileReader(filePath);
 
         JSONParser jsonParser = new JSONParser();
 
@@ -34,8 +34,6 @@ public class JsonDataProvider {
 
         // now get the test data object of the test case, which is Array
         JSONArray jsonArray = (JSONArray) jsonObject.get(testName);
-        int testDataSetsCount =jsonArray.size();
-
         int enabledSets = 0;
         for(Object dataSet: jsonArray){
             // converting each data set to json object
