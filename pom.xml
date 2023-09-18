@@ -9,27 +9,30 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>selenium-framework</name>
-    <url>http://inmmumtst136:3002/MOPISWEB/login</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jre.level>1.8</jre.level>
         <jdk.level>1.8</jdk.level>
-<!--        <xmlFile>${xmlFile}</xmlFile>-->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <seleniumversion>4.12.0</seleniumversion>
+        <testngversion>7.7.0</testngversion>
+        <extentversion>5.1.0</extentversion>
+        <restassuredversion>4.4.0</restassuredversion>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.7.0</version>
+            <version>${testngversion}</version>
         </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.12.0</version>
+            <version>${seleniumversion}</version>
         </dependency>
 
         <dependency>
@@ -53,7 +56,7 @@
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>5.0.9</version>
+            <version>${extentversion}</version>
         </dependency>
 
         <dependency>
@@ -65,7 +68,7 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
+            <version>${restassuredversion}</version>
             <scope>test</scope>
         </dependency>
 
@@ -137,8 +140,8 @@
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
-<!--                            <suiteXmlFile>${xmlFile}</suiteXmlFile>-->
-<!--                            <suiteXmlFile>premiumValidations.xml</suiteXmlFile>-->
+                            <!--                            <suiteXmlFile>${xmlFile}</suiteXmlFile>-->
+                            <!--                            <suiteXmlFile>premiumValidations.xml</suiteXmlFile>-->
                         </suiteXmlFiles>
                         <!--<properties>
                             <property>

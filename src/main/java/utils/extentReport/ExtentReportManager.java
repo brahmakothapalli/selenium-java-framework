@@ -15,6 +15,8 @@ public class ExtentReportManager {
 
     private static final Logger logger = Logger.getLogger(ExtentReportManager.class);
 
+    private ExtentReportManager(){}
+
     public static ExtentReports getInstance() {
         logger.info("Creating extent report instance if it is null - singleton pattern :: getInstance");
         return new ExtentReports();
@@ -49,7 +51,7 @@ public class ExtentReportManager {
     }
 
     public static void logInfoDetails(String info){
-        ReportTestListener.extentTest.get().info(MarkupHelper.createLabel(info, ExtentColor.BLUE));
+        ReportTestListener.extentTest.get().info(MarkupHelper.createLabel(info, ExtentColor.GREY));
     }
 
     public static void logPassDetails(String info){

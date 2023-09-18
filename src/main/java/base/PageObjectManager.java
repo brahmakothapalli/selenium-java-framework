@@ -1,6 +1,6 @@
 package base;
 
-import PageActions.*;
+import pageActions.*;
 
 public class PageObjectManager {
 

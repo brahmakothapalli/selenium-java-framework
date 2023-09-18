@@ -22,33 +22,39 @@ public class ReportTestListener implements ITestListener {
 
     public static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
+    @Override
     public void onStart(ITestContext context) {
         String reportPath = ExtentReportManager.getReportPath();
         extentReports = ExtentReportManager.createInstance(reportPath);
     }
 
+
+    @Override
     public void onFinish(ITestContext context) {
         if(extentReports!=null){
             extentReports.flush();
         }
     }
 
+    @Override
     public void onTestStart(ITestResult result) {
         ExtentTest testReport = extentReports.createTest(result.getTestClass().getName()+"-"+result.getMethod().getMethodName());
         extentTest.set(testReport);
     }
 
+    @Override
     public void onTestSuccess(ITestResult result) {
         String logText = "<b> Test Method "+result.getMethod().getMethodName()+" is Successful </b>";
         Markup m = MarkupHelper.createLabel(logText, ExtentColor.GREEN);
         extentTest.get().log(Status.PASS, m);
     }
 
+    @Override
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
         String exceptionMessage = Arrays.toString(result.getThrowable().getStackTrace());
         String screenShotLocation = BaseTest.takeScreenshot(DriverManager.getDriver(), methodName);
-        extentTest.get().fail("<details><summary><b><font color=red>"+"Exception Occured, click to see the details </font></b></summary>"+
+        extentTest.get().fail("<details><summary><b><font color=red>"+"Exception Occurred, click to see the details </font></b></summary>"+
                 exceptionMessage.replaceAll(",", "<b>")+"</details> \n");
         if(new File(screenShotLocation).exists()){
             extentTest.get().fail("Screenshot of the failed test is <b> "+extentTest.get().addScreenCaptureFromPath(screenShotLocation));
@@ -58,6 +64,7 @@ public class ReportTestListener implements ITestListener {
         extentTest.get().log(Status.FAIL, m);
     }
 
+    @Override
     public void onTestSkipped(ITestResult result) {
         String logText = "<b> Test Method "+result.getMethod().getMethodName()+" is Skipped </b>";
         Markup m = MarkupHelper.createLabel(logText, ExtentColor.YELLOW);

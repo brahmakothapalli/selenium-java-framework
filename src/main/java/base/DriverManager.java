@@ -24,7 +24,6 @@ public class DriverManager {
     private static ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<>();
     static synchronized void setBrowserType(String browser) {
         logger.info("Setting the browserType " + browser + " in :: setBrowserType");
-        ExtentReportManager.logInfoDetails("The selected browser for execution is - "+browser);
         browserType = browser;
     }
     public static synchronized RemoteWebDriver getDriver()  {
@@ -36,17 +35,14 @@ public class DriverManager {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--incognito");
                     driver = new ChromeDriver(options);
-                    ExtentReportManager.logInfoDetails("Chrome driver is initialized :: getDriver");
                     threadDriver.set(driver);
                     break;
                 case FIREFOX:
                     driver = new FirefoxDriver();
-                    ExtentReportManager.logInfoDetails("Firefox driver is initialized :: getDriver");
                     threadDriver.set(driver);
                     break;
                 case EDGE:
                     driver = new EdgeDriver();
-                    ExtentReportManager.logInfoDetails("Edge driver is initialized :: getDriver");
                     threadDriver.set(driver);
                     break;
             }
@@ -56,7 +52,9 @@ public class DriverManager {
 
     static void quitDriver() {
         ExtentReportManager.logInfoDetails("Closing the browser :: quitDriver");
-        getDriver().quit();
-        DriverManager.threadDriver.remove();
+        if(getDriver()!=null){
+            getDriver().quit();
+            DriverManager.threadDriver.remove();
+        }
     }
 }

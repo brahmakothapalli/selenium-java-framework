@@ -3,6 +3,7 @@ package helper;
 import base.DriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -122,7 +123,7 @@ public class WaitHelper {
      * @param pollingPeriod the waiting period between each check for the condition
      * @return instance of FluentWait
      */
-    public static FluentWait<WebDriver> getFluentWait(long timeout, long pollingPeriod){
+    public static FluentWait<RemoteWebDriver> getFluentWait(long timeout, long pollingPeriod){
         return new FluentWait<>(DriverManager.getDriver())
                 .withTimeout(Duration.ofSeconds(timeout))
                 .pollingEvery(Duration.ofSeconds(pollingPeriod))
