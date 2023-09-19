@@ -1,6 +1,7 @@
 package helper;
 
 import base.DriverManager;
+import lombok.SneakyThrows;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -19,7 +20,7 @@ public class WaitHelper {
     private WaitHelper() {
     }
 
-
+    @SneakyThrows
     public static void waitForElementVisibility(By elementLocator) {
         logger.info("Waits for element visibility with the given locator:: waitForElementVisibility");
         try {
@@ -30,6 +31,7 @@ public class WaitHelper {
         }
     }
 
+    @SneakyThrows
     public static void waitForElementVisibility(WebElement element) {
         logger.info("Waits for element visibility with the given element:: waitForElementVisibility");
         try {
@@ -40,7 +42,8 @@ public class WaitHelper {
         }
     }
 
-    public static WebElement waitForStaleElement(WebDriver driver, By elementLocator, long timeout) throws InterruptedException {
+    @SneakyThrows
+    public static WebElement waitForStaleElement(WebDriver driver, By elementLocator, long timeout) {
         logger.info("Handling the stale element with given locator "+elementLocator+" :: waitForStaleElement");
         WebElement element = null;
         while(timeout>0){
@@ -55,6 +58,7 @@ public class WaitHelper {
         return element;
     }
 
+    @SneakyThrows
     public static void waitForElementClickable(By elementLocator) {
         logger.info("Waiting for the element till it is clickable :: waitForElementClickable");
         try {
@@ -102,7 +106,8 @@ public class WaitHelper {
      * @param condition the condition that needs to be satisfied
      * @param <T> type of the condition
      */
-    public static <T> void waitFor(ExpectedCondition<T> condition){
+    @SneakyThrows
+    public static <T> void waitFor(ExpectedCondition<T> condition) {
         waitFor(condition, TIMEOUT_PERIOD, POLLING_PERIOD);
     }
 
@@ -112,7 +117,8 @@ public class WaitHelper {
      * @param pollingPeriod time interval between each condition check
      * @param <T> type of the condition
      */
-    public static <T> void waitFor(ExpectedCondition<T> condition, long timeout, long pollingPeriod){
+    @SneakyThrows
+    public static <T> void waitFor(ExpectedCondition<T> condition, long timeout, long pollingPeriod) {
         getFluentWait(timeout, pollingPeriod).until(condition);
     }
 
@@ -123,7 +129,7 @@ public class WaitHelper {
      * @param pollingPeriod the waiting period between each check for the condition
      * @return instance of FluentWait
      */
-    public static FluentWait<RemoteWebDriver> getFluentWait(long timeout, long pollingPeriod){
+    public static FluentWait<RemoteWebDriver> getFluentWait(long timeout, long pollingPeriod) {
         return new FluentWait<>(DriverManager.getDriver())
                 .withTimeout(Duration.ofSeconds(timeout))
                 .pollingEvery(Duration.ofSeconds(pollingPeriod))

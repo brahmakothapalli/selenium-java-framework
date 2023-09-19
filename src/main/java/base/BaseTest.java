@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import utils.extentReport.ExtentReportManager;
-import utils.fileReader.ConfigDataReader;
+import utils.fileReader.ConfigurationReader;
 import utils.logging.Logger;
 
 import java.io.File;
@@ -26,9 +26,9 @@ public class BaseTest {
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {
         logger.info("Executing the @BeforeSuite - configSetUpMethod() in BaseTest ");
-        Properties prop = ConfigDataReader.configPropInit();
+        Properties prop = ConfigurationReader.getConfigInstance();
         logger.info("Config Properties Initialised");
-        String browserName = prop.getProperty("browserType");
+        String browserName = prop.getProperty("browser");
         logger.info("Selected browserType is: " + browserName);
         DriverManager.setBrowserType(browserName);
         appUrl = prop.getProperty("appUrl");

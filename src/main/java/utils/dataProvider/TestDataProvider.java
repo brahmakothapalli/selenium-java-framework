@@ -4,7 +4,7 @@ import base.BaseTest;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.fileReader.ConfigDataReader;
+import utils.fileReader.ConfigurationReader;
 import utils.fileReader.ExcelDataReader;
 import utils.logging.Logger;
 
@@ -24,7 +24,7 @@ public class TestDataProvider extends BaseTest {
 
         logger.info("Executing dataProvider method");
 
-        testDataFilePath = ConfigDataReader.configPropInit().getProperty("testDataFilePath");
+        testDataFilePath = ConfigurationReader.getConfigInstance().getProperty("testDataFilePath");
 
         logger.info("Test Data Path : " + testDataFilePath);
 

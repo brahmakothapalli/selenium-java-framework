@@ -9,35 +9,22 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigDataReader {
+public class ConfigurationReader {
 
     private static final Logger logger = Logger.getInstance();
-
     private static Properties prop;
 
+    private ConfigurationReader(){}
 
-    private ConfigDataReader(){
-
-    }
-
-
-    public static Properties configPropInit() {
-
-        logger.info("Loading the properties file in :: ConfigPropInit ");
-
+    public static Properties getConfigInstance() {
+        logger.info("Loading the configuration properties :: getConfigInstance :: ConfigurationReader");
         File file = new File(ConstantVariable.CONFIG_PROP_FILEPATH);
-
         if(prop == null){
-
             prop = new Properties();
-
             try (FileInputStream fis = new FileInputStream(file)) {
-
                 prop.load(fis);
-
             } catch (IOException e) {
-
-                logger.error("Failed to load the properties file in :: ConfigPropInit ");
+                logger.error("Failed to load the configuration properties :: getConfigInstance :: ConfigurationReader " + e.getMessage());
             }
         }
         return prop;

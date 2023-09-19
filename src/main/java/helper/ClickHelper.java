@@ -1,6 +1,7 @@
 package helper;
 
 import base.DriverManager;
+import lombok.SneakyThrows;
 import utils.extentReport.ExtentReportManager;
 import org.openqa.selenium.*;
 import utils.logging.Logger;
@@ -14,16 +15,17 @@ public class ClickHelper {
 
     }
 
-    public static void clickElement(WebDriver driver, By elementLocator) throws InterruptedException {
+    @SneakyThrows
+    public static void clickElement(By elementLocator) {
         ExtentReportManager.logInfoDetails("Clicking on the given element :: clickElement");
         logger.info("Clicking on the element " + elementLocator + "in :: clickElement");
         try {
             WaitHelper.waitForElementVisibility(elementLocator);
-            driver.findElement(elementLocator).click();
+            DriverManager.getDriver().findElement(elementLocator).click();
         } catch (NoSuchElementException | ElementClickInterceptedException e) {
             ExtentReportManager.logWarningDetails("Clicking on the given element thrown an exception :: clickElement "+e.getMessage());
             logger.info("Trying to clicking on the element " + elementLocator + "using JavaScriptExecutor :: clickElement");
-            javaScriptExecutorClick(driver, elementLocator);
+            javaScriptExecutorClick(DriverManager.getDriver(), elementLocator);
         } catch (StaleElementReferenceException e) {
             ExtentReportManager.logWarningDetails("Clicking on the given element thrown an exception :: clickElement "+e.getMessage());
             logger.info("Trying to clicking on the element " + elementLocator + "using JavaScript from clickElement method");

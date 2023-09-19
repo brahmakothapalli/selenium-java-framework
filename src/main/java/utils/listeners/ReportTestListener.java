@@ -2,6 +2,7 @@ package utils.listeners;
 
 import base.BaseTest;
 import base.DriverManager;
+import lombok.SneakyThrows;
 import utils.extentReport.ExtentReportManager;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -50,10 +51,12 @@ public class ReportTestListener implements ITestListener {
     }
 
     @Override
+    @SneakyThrows
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
         String exceptionMessage = Arrays.toString(result.getThrowable().getStackTrace());
-        String screenShotLocation = BaseTest.takeScreenshot(DriverManager.getDriver(), methodName);
+        String screenShotLocation = null;
+        screenShotLocation = BaseTest.takeScreenshot(DriverManager.getDriver(), methodName);
         extentTest.get().fail("<details><summary><b><font color=red>"+"Exception Occurred, click to see the details </font></b></summary>"+
                 exceptionMessage.replaceAll(",", "<b>")+"</details> \n");
         if(new File(screenShotLocation).exists()){
