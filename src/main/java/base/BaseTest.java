@@ -23,6 +23,7 @@ import java.util.Properties;
 public class BaseTest {
     private static String appUrl = null;
     private static final Logger logger = Logger.getInstance();
+
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {
         logger.info("Executing the @BeforeSuite - configSetUpMethod() in BaseTest ");
@@ -37,10 +38,11 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public static void beforeMethodSetUp(Method method, ITestContext context) {
         logger.info("Initialisation the browser  DriverManager.getDriver()::beforeMethodSetUp");
-        DriverManager.getDriver().manage().deleteAllCookies();
-        DriverManager.getDriver().manage().window().maximize();
-        DriverManager.getDriver().navigate().to(appUrl);
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        WebDriver browserDriver = DriverManager.getDriver();
+        browserDriver.manage().deleteAllCookies();
+        browserDriver.manage().window().maximize();
+        browserDriver.navigate().to(appUrl);
+        browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
     public static String takeScreenshot(WebDriver driver, String testName) {
         logger.info("Capturing the screenshot :: takeScreenshot");

@@ -1,4 +1,4 @@
-package pageActions;
+package pageactions;
 
 import base.BaseTest;
 import utils.logging.Logger;

@@ -25,7 +25,7 @@ public class GooglePageTests extends BaseTest {
         logger.info("Executing testSearchMyBlog :: GooglePageTests");
         ExtentReportManager.logInfoDetails("Executing the test :: testSearchMyBlog");
         TextHelper.enterText(DriverManager.getDriver(), By.name("q"), jsonObject.get("searchKeyword").toString()+Keys.ENTER);
-        ClickHelper.clickElement(By.xpath("//h3[contains(text(), 'Brahma')]"));
+        ClickHelper.clickElement(By.xpath("//h3[contains(text(), 'QA Automation')]"));
         assert DriverManager.getDriver().getTitle().equalsIgnoreCase(jsonObject.get("title").toString());
     }
 

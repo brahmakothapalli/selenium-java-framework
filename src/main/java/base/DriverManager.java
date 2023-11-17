@@ -54,10 +54,10 @@ public class DriverManager {
         return threadDriver.get();
     }
 
-    static void quitDriver() {
-        ExtentReportManager.logInfoDetails("Closing the browser :: quitDriver");
-        if(getDriver()!=null){
-            getDriver().quit();
+    public static void quitDriver() {
+//        ExtentReportManager.logInfoDetails("Closing the browser :: quitDriver");
+        if(DriverManager.threadDriver.get()!=null){
+            DriverManager.threadDriver.get().quit();
             DriverManager.threadDriver.remove();
         }
     }
