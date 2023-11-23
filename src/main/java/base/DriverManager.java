@@ -1,6 +1,7 @@
 package base;
 
 import enums.BrowserType;
+import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -30,6 +31,7 @@ public class DriverManager {
     private static final String GRID_URL = "http://localhost:4444/wd/hub";
 
     @SneakyThrows
+    @Step("Initializing the browser")
     public static synchronized RemoteWebDriver getDriver()  {
         BrowserType browser = BrowserType.valueOf(browserType);
         if (DriverManager.threadDriver.get() == null) {

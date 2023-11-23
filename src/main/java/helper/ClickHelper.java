@@ -1,6 +1,7 @@
 package helper;
 
 import base.DriverManager;
+import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import utils.extentReport.ExtentReportManager;
 import org.openqa.selenium.*;

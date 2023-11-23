@@ -17,7 +17,7 @@ import org.testng.ITestResult;
 import java.io.File;
 import java.util.Arrays;
 
-public class ReportTestListener implements ITestListener {
+public class ExtentReportListener implements ITestListener {
 
     private static ExtentReports extentReports;
 
@@ -50,7 +50,7 @@ public class ReportTestListener implements ITestListener {
         extentTest.get().log(Status.PASS, m);
     }
 
-    @Override
+   /* @Override
     @SneakyThrows
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
@@ -65,7 +65,7 @@ public class ReportTestListener implements ITestListener {
         String logText = "<b> Test Method "+methodName+" is Failed </b>";
         Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
         extentTest.get().log(Status.FAIL, m);
-    }
+    }*/
 
     @Override
     public void onTestSkipped(ITestResult result) {

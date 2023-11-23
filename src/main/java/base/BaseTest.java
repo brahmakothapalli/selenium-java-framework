@@ -1,5 +1,6 @@
 package base;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -44,24 +45,29 @@ public class BaseTest {
         browserDriver.navigate().to(appUrl);
         browserDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
-    public static String takeScreenshot(WebDriver driver, String testName) {
+    public static File takeScreenshot(WebDriver driver, String testName) {
         logger.info("Capturing the screenshot :: takeScreenshot");
         ExtentReportManager.logInfoDetails(" Taking the screenshot for the failed test :: takeScreenshot");
         String screenShotPath = null;
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
-            screenShotPath = System.getProperty("user.dir") + "\\Reports\\Screenshots\\" + testName + "_screenshot.png";
+            screenShotPath = System.getProperty("user.dir") + "\\screenshots\\" + testName + "_screenshot.png";
             logger.info("The screenshot is saved at " + screenShotPath);
             FileUtils.copyFile(src, new File(screenShotPath));
         } catch (IOException e) {
             logger.error("Failed to capture the screenshot:: takesScreenshot " + e);
         }
-        return screenShotPath;
+        return src;
     }
+
     @AfterMethod(alwaysRun = true)
-    public static synchronized void updateTestStatus(ITestResult result) {
+    public static synchronized void updateTestStatus(ITestResult result) throws IOException {
         logger.info("updating result of test script " + result.getName() + " to report :: updateTestStatus");
+        if(result.getStatus()==ITestResult.FAILURE){
+           File screenshot = takeScreenshot(DriverManager.getDriver(), result.getName());
+           Allure.addAttachment("Page Screenshot", FileUtils.openInputStream(screenshot));
+        }
         DriverManager.quitDriver();
     }
 

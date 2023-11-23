@@ -4,6 +4,7 @@ import base.BaseTest;
 import base.DriverManager;
 import helper.ClickHelper;
 import helper.TextHelper;
+import io.qameta.allure.Description;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,9 +13,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.dataProvider.JsonDataProvider;
 import utils.extentReport.ExtentReportManager;
-import utils.listeners.ReportTestListener;
+import utils.listeners.ExtentReportListener;
 
-@Listeners(ReportTestListener.class)
+@Listeners(ExtentReportListener.class)
 public class GoogleSearchTests extends BaseTest {
 
 

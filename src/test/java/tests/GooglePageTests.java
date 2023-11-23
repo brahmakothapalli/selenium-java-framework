@@ -12,9 +12,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.dataProvider.JsonDataProvider;
 import utils.extentReport.ExtentReportManager;
+import utils.listeners.ExtentReportListener;
 import utils.logging.Logger;
 
-@Listeners(utils.listeners.ReportTestListener.class)
+@Listeners(ExtentReportListener.class)
 public class GooglePageTests extends BaseTest {
 
     private static final Logger logger = Logger.getInstance();

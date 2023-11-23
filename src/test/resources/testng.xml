@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="RegressionSuite" verbose="1" parallel="methods" thread-count="1">
     <listeners>
-        <listener class-name="utils.listeners.ReportTestListener"/>
+        <listener class-name="utils.listeners.ExtentReportListener"/>
     </listeners>
     <test name="Test">
         <classes>
