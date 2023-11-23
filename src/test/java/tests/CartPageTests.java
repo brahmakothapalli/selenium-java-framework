@@ -3,6 +3,7 @@ package tests;
 import base.BaseTest;
 import base.DriverManager;
 import base.PageObjectManager;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,6 +22,7 @@ public class CartPageTests extends BaseTest {
         loginPageActions = PageObjectManager.getLoginPageActions();
     }
     @Test
+    @Description("This test checkout product")
     public void testCheckoutProducts(){
         loginPageActions.enterUserCredentials(DriverManager.getDriver(), "standard_user", "secret_sauce");
         productsPageActions = loginPageActions.clickLoginButton(DriverManager.getDriver());

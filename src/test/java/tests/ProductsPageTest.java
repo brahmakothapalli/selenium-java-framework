@@ -4,6 +4,8 @@ import base.BaseTest;
 import base.DriverManager;
 import base.PageObjectManager;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -22,6 +24,7 @@ public class ProductsPageTest extends BaseTest {
     }
 
     @Test
+    @Description("This test validates products page UI")
     public void testValidateProductsPage(){
         loginPageActions.enterUserCredentials(DriverManager.getDriver(), "standard_user", "secret_sauce");
         productsPageActions = loginPageActions.clickLoginButton(DriverManager.getDriver());
@@ -33,6 +36,7 @@ public class ProductsPageTest extends BaseTest {
 
     @Test
     @Description("This test validates adding product to cart functionality")
+    @Severity(SeverityLevel.CRITICAL)
     public void testAddingProductToCart()   {
         loginPageActions.enterUserCredentials(DriverManager.getDriver(), "standard_user", "secret_sauce");
         productsPageActions = loginPageActions.clickLoginButton(DriverManager.getDriver());
@@ -44,7 +48,8 @@ public class ProductsPageTest extends BaseTest {
     }
 
     @Test
-    @Description("This test validates adding multiple products functionality    ")
+    @Description("This test validates adding multiple products functionality")
+    @Severity(SeverityLevel.TRIVIAL)
     public void testAddMultipleProducts()    {
         loginPageActions.enterUserCredentials(DriverManager.getDriver(), "standard_user", "secret_sauce");
         productsPageActions = loginPageActions.clickLoginButton(DriverManager.getDriver());
