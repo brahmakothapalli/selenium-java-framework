@@ -47,7 +47,7 @@ public class BaseTest {
     }
     public static File takeScreenshot(WebDriver driver, String testName) {
         logger.info("Capturing the screenshot :: takeScreenshot");
-        ExtentReportManager.logInfoDetails(" Taking the screenshot for the failed test :: takeScreenshot");
+//        ExtentReportManager.logInfoDetails(" Taking the screenshot for the failed test :: takeScreenshot");
         String screenShotPath = null;
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File src = takesScreenshot.getScreenshotAs(OutputType.FILE);

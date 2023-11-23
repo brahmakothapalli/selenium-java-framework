@@ -25,12 +25,13 @@ public class LoginPageActions extends BaseTest {
         return driver.findElement(loginButtonLocator);
     }
     public void enterUserCredentials(WebDriver driver, String uname, String pwd){
-        getLoginElement(driver).sendKeys(uname);
+        getUserNameElement(driver).sendKeys(uname);
         getPasswordElement(driver).sendKeys(pwd);
     }
 
-    public void clickLoginButton(WebDriver driver){
+    public ProductsPageActions clickLoginButton(WebDriver driver){
         getLoginElement(driver).click();
+        return new ProductsPageActions();
     }
 
 
