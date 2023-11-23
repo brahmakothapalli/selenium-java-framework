@@ -31,7 +31,6 @@ public class DriverManager {
     private static final String GRID_URL = "http://localhost:4444/wd/hub";
 
     @SneakyThrows
-    @Step("Initializing the browser")
     public static synchronized RemoteWebDriver getDriver()  {
         BrowserType browser = BrowserType.valueOf(browserType);
         if (DriverManager.threadDriver.get() == null) {

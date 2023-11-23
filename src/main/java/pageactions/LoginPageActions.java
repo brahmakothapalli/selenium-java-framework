@@ -1,6 +1,7 @@
 package pageactions;
 
 import base.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.logging.Logger;
@@ -24,11 +25,13 @@ public class LoginPageActions extends BaseTest {
     public WebElement getLoginElement(WebDriver driver) {
         return driver.findElement(loginButtonLocator);
     }
+    @Step("Entering the user credentials")
     public void enterUserCredentials(WebDriver driver, String uname, String pwd){
         getUserNameElement(driver).sendKeys(uname);
         getPasswordElement(driver).sendKeys(pwd);
     }
 
+    @Step("Clicking on login button")
     public ProductsPageActions clickLoginButton(WebDriver driver){
         getLoginElement(driver).click();
         return new ProductsPageActions();

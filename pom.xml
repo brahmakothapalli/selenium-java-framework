@@ -20,6 +20,7 @@
         <testngversion>7.7.0</testngversion>
         <extentversion>5.1.0</extentversion>
         <restassuredversion>4.4.0</restassuredversion>
+        <aspectj.version>1.9.20.1</aspectj.version>
     </properties>
 
     <dependencies>
@@ -148,18 +149,18 @@
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
-                            <!--                            <suiteXmlFile>${xmlFile}</suiteXmlFile>-->
-                            <!--                            <suiteXmlFile>premiumValidations.xml</suiteXmlFile>-->
                         </suiteXmlFiles>
-                        <!--<properties>
-                            <property>
-                                <name>suitethreadpoolsize</name>
-                                <value>2</value>
-                            </property>
-                        </properties>-->
-                        <parallel>methods</parallel>
-                        <threadCount>3</threadCount>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        </argLine>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
