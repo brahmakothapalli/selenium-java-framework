@@ -8,6 +8,7 @@ import utils.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DropdownHelper {
 
@@ -77,18 +78,15 @@ public class DropdownHelper {
         }
     }
 
-    public static List<String> getDropdownValues(WebDriver driver, By elementLocator) throws InterruptedException {
+    public static List<String> getDropdownValues(WebDriver driver, By elementLocator) {
         logger.info("Getting the options from dropdown:: getDropdownValues "+elementLocator);
         try {
-            Thread.sleep(5000);
             Select dropdown = new Select(driver.findElement(elementLocator));
             List<WebElement> elements = dropdown.getOptions();
             logger.info("The size of the dropdown elements:: "+elements.size());
-            List<String> options = new ArrayList<>();
-            for(WebElement element : elements){
-                options.add(element.getText());
-            }
-            return options;
+            return elements.stream()
+                    .map(WebElement::getText)
+                    .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("Failed to get the options from dropdown:: getDropdownValues");
             throw (e);

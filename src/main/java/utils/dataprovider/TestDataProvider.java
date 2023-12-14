@@ -1,4 +1,4 @@
-package utils.dataProvider;
+package utils.dataprovider;
 
 import base.BaseTest;
 import org.apache.poi.xssf.usermodel.XSSFSheet;

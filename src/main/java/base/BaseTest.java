@@ -1,5 +1,6 @@
 package base;
 
+import enums.BrowserType;
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -24,6 +25,8 @@ import java.util.Properties;
 public class BaseTest {
     private static String appUrl = null;
     private static final Logger logger = Logger.getInstance();
+
+
 
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {

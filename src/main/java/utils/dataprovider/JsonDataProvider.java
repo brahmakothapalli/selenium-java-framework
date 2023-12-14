@@ -1,4 +1,4 @@
-package utils.dataProvider;
+package utils.dataprovider;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
