@@ -13,7 +13,7 @@ public class ConfigurationReader {
 
     private static final Logger logger = Logger.getInstance();
     private static final Properties prop = new Properties();
-    private static ConfigurationReader configurationReader=null;
+    private static ConfigurationReader configurationReader;
 
     private ConfigurationReader() {
         logger.info("Loading the properties file");
@@ -39,7 +39,7 @@ public class ConfigurationReader {
         return configurationReader;
     }
 
-    public static String getProperty(String key){
+    public String getProperty(String key){
         String envValue =System.getenv(key.toUpperCase());
         return envValue.isBlank() ? prop.getProperty(key) : envValue;
     }

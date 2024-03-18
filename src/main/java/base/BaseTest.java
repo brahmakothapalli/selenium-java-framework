@@ -29,12 +29,11 @@ public class BaseTest {
     @BeforeSuite(alwaysRun = true)
     public static void configSetUpMethod() {
         logger.info("Executing the @BeforeSuite - configSetUpMethod() in BaseTest ");
-        Properties prop = ConfigurationReader.getConfigInstance();
         logger.info("Config Properties Initialised");
-        String browserName = prop.getProperty("browser");
+        String browserName = ConfigurationReader.getInstance().getProperty("browser");
         logger.info("Selected browserType is: " + browserName);
         DriverManager.setBrowserType(browserName);
-        appUrl = prop.getProperty("appUrl");
+        appUrl =  ConfigurationReader.getInstance().getProperty("appUrl");
         logger.info("Given application URL is: " + appUrl);
     }
     @BeforeMethod(alwaysRun = true)

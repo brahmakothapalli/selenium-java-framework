@@ -25,14 +25,14 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    private static ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<>();
+    private static final ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<>();
 
     static synchronized void setBrowserType(String browser) {
         logger.info("Setting the browserType " + browser + " in :: setBrowserType");
     }
 
-    static String platform = ConfigurationReader.getConfigInstance().getProperty("platform");
-    static String browser = ConfigurationReader.getConfigInstance().getProperty("browser");
+    static String platform = ConfigurationReader.getInstance().getProperty("platform");
+    static String browser = ConfigurationReader.getInstance().getProperty("browser");
     private static final String GRID_URL = "http://localhost:4444/wd/hub";
 
     @SneakyThrows
