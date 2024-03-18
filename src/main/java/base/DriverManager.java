@@ -1,7 +1,5 @@
 package base;
 
-import enums.BrowserType;
-import io.qameta.allure.Step;
 import lombok.SneakyThrows;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,8 +9,7 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import utils.extentReport.ExtentReportManager;
-import utils.fileReader.ConfigurationReader;
+import utils.filereader.ConfigurationReader;
 import utils.logging.Logger;
 
 import java.net.URL;

@@ -4,8 +4,8 @@ import base.BaseTest;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.fileReader.ConfigurationReader;
-import utils.fileReader.ExcelDataReader;
+import utils.filereader.ConfigurationReader;
+import utils.filereader.ExcelDataReader;
 import utils.logging.Logger;
 
 import java.lang.reflect.Method;

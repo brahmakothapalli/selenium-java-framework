@@ -1,6 +1,5 @@
 package base;
 
-import enums.BrowserType;
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,8 +10,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import utils.extentReport.ExtentReportManager;
-import utils.fileReader.ConfigurationReader;
+import utils.filereader.ConfigurationReader;
 import utils.logging.Logger;
 
 import java.io.File;

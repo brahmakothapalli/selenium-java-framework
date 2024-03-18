@@ -1,4 +1,4 @@
-package utils.fileReader;
+package utils.filereader;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
